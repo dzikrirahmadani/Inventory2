@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Inventory Dashboard</title>
+    <title>Tambah Barang - Barang</title>
     
     <link rel="stylesheet" href="assets/css/main/app.css">
     <link rel="stylesheet" href="assets/css/main/app-dark.css">
@@ -57,7 +57,11 @@
         height: 20px;
     }
     body.theme-dark select#nameV {
-    background-color: #1b1b29;
+        background-color: #1b1b29;
+    }
+    body.theme-dark .col-2 {
+        background-color: #1b1b29;
+        color: white;
     }
 </style>
 
@@ -179,19 +183,15 @@
             </a>
         </header>
         <div class="page-heading flex">
-            <h3>Barang</h3>
+            <h3 class="sm:ml-[30%] md:ml-[35%]">Tambah Barang📑</h3>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title ml-[42%]">Tambah Barang</h4>
-            </div>
+        <div class="card col-md-6 sm:ml-[0%] md:ml-[25%]">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="basicInput">Kd barang :</label>
-                            <input type="text" class="form-control" id="kd_brg" disabled>
-                        </div>
+                    <div class="form-group">
+                        <label for="kd_brg">Kode Barang</label>
+                        <input type="text" class="form-control" id="kd_brg"
+                            disabled>
                     </div>
                 </div>
                 <div class="row">
@@ -201,43 +201,65 @@
                             <input type="text" class="form-control" id="nama" placeholder="-">
                         </div>
                     </div>
-                    <div class="col-md-6">
+
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="basicInput">Merk :</label>
                             <input type="text" class="form-control" id="merk" placeholder="-">
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="basicInput">Satuan :</label>
-                            <select type="text" name="" id="satuan" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;">
-                                <option>-- Pilih Satuan --</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
+
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="basicInput">Kategori :</label>
-                            <select type="text" name="" id="kategori" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;">
-                                <option value="">-- Pilih Kategori --</option>
+                            <select type="text" name="" id="nameV" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]">
+                                <option value="">-- Kategori Barang --</option>
+                                <option value="">Elektronik</option>
+                                <option value="">Furniture</option>
+                                <option value="">Buku Pelajaran</option>
+                                <option value="">Pakaian</option>
                             </select>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="basicInput">Satuan :</label>
+                            <select type="text" name="" id="nameV" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]">
+                                <option value="">-- Satuan Barang --</option>
+                                <option value="">Kilogram</option>
+                                <option value="">Pieces</option>
+                                <option value="">Pack</option>
+                                <option value="">Dus</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="basicInput">Stok :</label>
+                            <input type="number" class="form-control" id="basicInput" placeholder="0">
+                        </div>
+                    </div>
+
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="basicInput">Spesifikasi :</label>
-                            <textarea type="text" class="form-control" id="spesifikasi" placeholder="-"></textarea>
+                            <textarea type="text" class="form-control" id="basicInput" placeholder=""></textarea>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-2 bg-slate-200 px-5 py-2 ml-2 font-semibold text-slate-900 rounded-md hover:bg-opacity-50 transition ease-in-out duration-300">
+                        <button class=""><span class="ml-[-22px]">Batal</span></button>
+                    </div>
+                    <div class="col-2 bg-blue-800 px-5 py-2 ml-2 font-semibold text-white rounded-md hover:bg-opacity-80 transition ease-in-out duration-300">
+                        <button class=""><span class="ml-[-30px]">Tambah</span></button>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <button id="submit">Tambah</button>
-            </div>
+        </div>
     </div>
     <!-- END CONTENT -->
 
@@ -248,9 +270,7 @@
 <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="assets/js/pages/dashboard.js"></script>
 
-<!-- My Javascript -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/barang/TambahBarang.js"></script>
+<!-- My Script -->
 </body>
 
 </html>

@@ -92,8 +92,6 @@ $(document).ready(function(){
         return `<option value="${response[i].id_kategori}">${response[i].nm_kategori}</option>`;
     }
 
-    
-
     function getShowSatuan(response, i){
         return `<option value="${response[i].id_satuan}">${response[i].satuan}</option>`;
     }
