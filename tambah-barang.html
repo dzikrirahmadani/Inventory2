@@ -189,14 +189,22 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label for="basicInput">Kd barang :</label>
+                            <input type="text" class="form-control" id="kd_brg" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label for="basicInput">Nama Barang :</label>
-                            <input type="text" class="form-control" id="basicInput" placeholder="-">
+                            <input type="text" class="form-control" id="nama" placeholder="-">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Merk :</label>
-                            <input type="text" class="form-control" id="basicInput" placeholder="-">
+                            <input type="text" class="form-control" id="merk" placeholder="-">
                         </div>
                     </div>
                 </div>
@@ -204,27 +212,16 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Satuan :</label>
-                            <select type="text" name="" id="nameV" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]">
-                                <option value="">-- Pilih Satuan --</option>
-                                <div class="option">
-                                    
-                                </div>
-                                <!-- <option value="">Kilogram</option>
-                                <option value="">Pieces</option>
-                                <option value="">Pack</option>
-                                <option value="">Dus</option> -->
+                            <select type="text" name="" id="satuan" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;">
+                                <option>-- Pilih Satuan --</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Kategori :</label>
-                            <select type="text" name="" id="nameV" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]">
+                            <select type="text" name="" id="kategori" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;">
                                 <option value="">-- Pilih Kategori --</option>
-                                <option value="">Elektronik</option>
-                                <option value="">Alat Tulis</option>
-                                <option value="">Pakaian</option>
-                                <option value="">Furniture</option>
                             </select>
                         </div>
                     </div>
@@ -233,13 +230,13 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="basicInput">Spesifikasi :</label>
-                            <textarea type="text" class="form-control" id="basicInput" placeholder="-"></textarea>
+                            <textarea type="text" class="form-control" id="spesifikasi" placeholder="-"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <button>Tambah</button>
+                <button id="submit">Tambah</button>
             </div>
     </div>
     <!-- END CONTENT -->

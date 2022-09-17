@@ -5,7 +5,7 @@ $(document).ready(function(){
 
         $.ajax({
             type : "GET",
-            url : "php/Data.php",
+            url : "php/barang/DataBarang.php",
             dataType: "JSON",
             success : function(response){
                 let barang = '';
@@ -14,12 +14,8 @@ $(document).ready(function(){
                 }
                 
                 $('#targetData').append(barang);
-            }
+            },
         })
-
-    }
-
-    function CreateData(){
 
     }
 
