@@ -8438,6 +8438,6 @@ body.theme-dark svg.icon-barang-keluar {
   height: 20px;
 }
 
-body.theme-dark table.table {
+body.theme-dark table#example {
   background-color: #1b1b29;
 }

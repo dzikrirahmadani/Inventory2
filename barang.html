@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barang - Inventory</title>
+    <title>Barang - Inventory Dashboard</title>
     
     <link rel="stylesheet" href="assets/css/main/app.css">
     <link rel="stylesheet" href="assets/css/main/app-dark.css">
     <link rel="shortcut icon" href="assets/images/logo/logoinvent.png" type="image/x-icon">
     <link rel="shortcut icon" href="assets/images/logo/logoinvent.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- data -->
     
 <link rel="stylesheet" href="assets/css/shared/iconly.css">
 
@@ -69,7 +70,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="logo flex">
                                 <a href="index.html"><img src="assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
-                                <h5 class="text-[20px] ml-2 -mt-[1px]">Inventory</h5>
+                                <h5 class="text-[20px] ml-2 -mt-[1px]">-</h5>
                             </div>
                             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path><g transform="translate(-210 -1)"><path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path><circle cx="220.5" cy="11.5" r="4"></circle><path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path></g></g></svg>
@@ -106,20 +107,20 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item ">
-                                    <a href="#">Barang</a>
+                                    <a href="barang.html">Barang</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="#">Kategori</a>
+                                    <a href="kategori.html">Kategori</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="#">Satuan</a>
+                                    <a href="satuan.html">Satuan</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="#">Merk</a>
+                                    <a href="merk.html">Merk</a>
                                 </li>
                             </ul>
                             <li class="sidebar-item">
-                                <a href="application-email.html" class='sidebar-link'>
+                                <a href="vendor.html" class='sidebar-link'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon-vendor bi bi-bag-heart-fill" viewBox="0 0 16 16">
                                         <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
                                     </svg>
@@ -127,7 +128,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="application-email.html" class='sidebar-link'>
+                                <a href="ruangan.html" class='sidebar-link'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon-ruangan bi bi-house-fill" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                                         <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
@@ -136,7 +137,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="application-email.html" class='sidebar-link'>
+                                <a href="pengajuan.html" class='sidebar-link'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon-pengajuan bi bi-send-check-fill" viewBox="0 0 16 16">
                                         <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47L15.964.686Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
                                         <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
@@ -145,7 +146,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="application-email.html" class='sidebar-link'>
+                                <a href="peminjaman.html" class='sidebar-link'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon-peminjaman bi bi-file-arrow-down-fill" viewBox="0 0 16 16">
                                         <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5z"/>
                                     </svg>
@@ -169,9 +170,57 @@
     </div>
     <!-- END SIDEBAR -->
     <!-- CONTENT -->
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
+        <div class="page-heading flex">
+            <h3>Barang</h3>
+            <a href="#" class="ml-[80%] bg-blue-900 w-[150px] text-white rounded-md p-2  hover:bg-opacity-80"><span class="ml-[10px] font-semibold">Tambah</span></a>
+        </div>
+        <div class="row">
+            <table id="example" class="table table-striped shadow-lg" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Id</th>
+                        <th>Nama</th>
+                        <th>Merk</th>
+                        <th>Satuan</th>
+                        <th>Kategori</th>
+                        <th>Spesifikasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>BGR-001</td>
+                        <td>Keyboard</td>
+                        <td>Logitech</td>
+                        <td>Dus</td>
+                        <td>Elektronik</td>
+                        <td>Warna Hitam</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
+
+            
+    </div>
     <!-- END CONTENT -->
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/app.js"></script>
     

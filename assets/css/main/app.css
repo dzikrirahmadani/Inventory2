@@ -17988,3 +17988,10 @@ a {
 .z-1 {
   z-index: 1;
 }
+
+/* halaman barang */
+
+  table#example {
+  background-color: white;
+  border-radius: 5px;
+}
