@@ -18,5 +18,4 @@ while($fetch = mysqli_fetch_array($sql)){
     $result[] = $fetch;
 }
 echo json_encode($result);
-
 ?>
