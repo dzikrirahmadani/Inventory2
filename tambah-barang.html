@@ -56,6 +56,9 @@
     .logo {
         height: 20px;
     }
+    body.theme-dark select#nameV {
+    background-color: #1b1b29;
+    }
 </style>
 
 </head>
@@ -180,7 +183,7 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Tambah Barang</h4>
+                <h4 class="card-title ml-[42%]">Tambah Barang</h4>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -200,22 +203,34 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="basicInput">Satuan Barang :</label>
-                            <input type="text" class="form-control" id="basicInput" placeholder="-">
+                            <label for="basicInput">Satuan :</label>
+                            <select type="text" name="" id="nameV" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]">
+                                <option value="">-- Pilih Satuan --</option>
+                                <option value="">Kilogram</option>
+                                <option value="">Pieces</option>
+                                <option value="">Pack</option>
+                                <option value="">Dus</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="basicInput">Kategori Barang :</label>
-                            <input type="text" class="form-control" id="basicInput" placeholder="-">
+                            <label for="basicInput">Kategori :</label>
+                            <select type="text" name="" id="nameV" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]">
+                                <option value="">-- Pilih Kategori --</option>
+                                <option value="">Elektronik</option>
+                                <option value="">Alat Tulis</option>
+                                <option value="">Pakaian</option>
+                                <option value="">Furniture</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="basicInput">Spesifikasi Barang :</label>
-                            <input type="text" class="form-control" id="basicInput" placeholder="-">
+                            <label for="basicInput">Spesifikasi :</label>
+                            <textarea type="text" class="form-control" id="basicInput" placeholder="-"></textarea>
                         </div>
                     </div>
                 </div>
