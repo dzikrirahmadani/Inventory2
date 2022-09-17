@@ -178,7 +178,7 @@
         </header>
         <div class="page-heading flex">
             <h3>Barang</h3>
-            <a href="#" class="ml-[80%] bg-blue-900 w-[150px] text-white rounded-md p-2  hover:bg-opacity-80"><span class="ml-[10px] font-semibold">Tambah</span></a>
+            <a href="tambah-barang.html" class="ml-[80%] bg-blue-900 w-[150px] text-white rounded-md p-2  hover:bg-opacity-80"><span class="ml-[10px] font-semibold">Tambah</span></a>
         </div>
         <div class="row">
             <table id="example" class="table table-striped shadow-lg" style="width:100%">
@@ -187,22 +187,16 @@
                         <th>No</th>
                         <th>Id</th>
                         <th>Nama</th>
-                        <th>Merk</th>
-                        <th>Satuan</th>
                         <th>Kategori</th>
+                        <th>Satuan</th>
+                        <th>Stok</th>
+                        <th>Merk</th>
                         <th>Spesifikasi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>BGR-001</td>
-                        <td>Keyboard</td>
-                        <td>Logitech</td>
-                        <td>Dus</td>
-                        <td>Elektronik</td>
-                        <td>Warna Hitam</td>
-                    </tr>
+                <tbody id="targetData">
+                    
                 </tbody>
             </table>
         </div>
@@ -228,6 +222,9 @@
 <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="assets/js/pages/dashboard.js"></script>
 
+<!-- My Javascript -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/barang/Barang.js"></script>
 </body>
 
 </html>
