@@ -30,8 +30,8 @@ $(document).ready(function(){
                     <td>${response[i].nm_merk}</td>
                     <td>${response[i].spesifikasi}</td>
                     <td>
-                        <button class='btn-edit' id='${response[i].id_brg}'>Ubah</button>
-                        <button class='btn-hapus' id='${response[i].id_brg}'>Hapus</button>
+                        <button class='btn-edit px-4 p-2 bg-green-600 text-white rounded-lg' id='${response[i].id_brg}'>Ubah</button>
+                        <button class='btn-hapus px-4 p-2 bg-orange-600 text-white rounded-lg' id='${response[i].id_brg}'>Hapus</button>
                     </td>
                 </tr>`;
     }
