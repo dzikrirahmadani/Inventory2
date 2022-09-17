@@ -15,19 +15,25 @@ $(document).ready(function(){
         const nama_barang = $('#nama').val();
         const merk = $('#merk').val();
         const satuan = $('#satuan').val();
+        const stok = $('#stok').val();
         const kategori = $('#kategori').val();
         const spesifikasi = $('#spesifikasi').val();
 
         $.ajax({
             type : "POST",
             url : "php/barang/TambahDataBarang.php",
-            data : `kd_brg=${kd_barang}&nama_barang=${nama_barang}&merk=${merk}&satuan=${satuan}&kategori=${kategori}&spesifikasi=${spesifikasi}`,
+            data : `kd_brg=${kd_barang}&nama_barang=${nama_barang}&merk=${merk}&satuan=${satuan}&stok=${stok}&kategori=${kategori}&spesifikasi=${spesifikasi}`,
             dataType : "JSON",
             success : function(response){
                 if( response.status == '1' ){
                     alert(response.msg);
+                    resetForm();
+                    setTimeout(() => {
+                        document.location.href = 'barang.html';
+                    }, 1000);
                 }else{
                     alert(response.msg);
+                    resetForm();
                 }
             }
         })
@@ -83,9 +89,17 @@ $(document).ready(function(){
             url : "php/barang/GetMerk.php",
             dataType : "JSON",
             success : function(response){
-                console.log(response)
+                let merk = '';
+                for(let i = 0; i < response.length; i++){
+                    merk += getShowMerk(response, i);
+                }
+                $('#merk').append(merk);
             }
         })
+    }
+
+    function getShowMerk(response, i){
+        return `<option value="${response[i].id_merk}">${response[i].nm_merk}</option>`
     }
 
     function getShowKategori(response, i){
@@ -94,5 +108,14 @@ $(document).ready(function(){
 
     function getShowSatuan(response, i){
         return `<option value="${response[i].id_satuan}">${response[i].satuan}</option>`;
+    }
+
+    function resetForm(){
+        const kd_barang = $('#kd_brg').val('');
+        const nama_barang = $('#nama').val('');
+        const merk = $('#merk').val('');
+        const satuan = $('#satuan').val('');
+        const kategori = $('#kategori').val('');
+        const spesifikasi = $('#spesifikasi').val('');  
     }
 })
