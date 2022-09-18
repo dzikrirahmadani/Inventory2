@@ -8,7 +8,6 @@ $(document).ready(function(){
     $('#submit').click(function(){
         tambahData();
     })
-
     function tambahData(){
 
         const kd_barang = $('#kd_brg').val();

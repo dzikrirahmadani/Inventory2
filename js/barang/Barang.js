@@ -2,7 +2,6 @@ $(document).ready(function(){
     ReadData();
 
     function ReadData(){
-
         $.ajax({
             type : "GET",
             url : "php/barang/DataBarang.php",
@@ -14,7 +13,13 @@ $(document).ready(function(){
                 }
                 
                 $('#targetData').append(barang);
+
+                $('#btn-ubah').click(function(){
+                    let id_brg = this.dataset.id;
+                    document.location.href = `ubah-barang.html?data=${id_brg}`;
+                })
             },
+
         })
 
     }
@@ -30,10 +35,9 @@ $(document).ready(function(){
                     <td>${response[i].nm_merk}</td>
                     <td>${response[i].spesifikasi}</td>
                     <td>
-                        <button class='btn-edit' id='${response[i].id_brg}'>Ubah</button>
-                        <button class='btn-hapus' id='${response[i].id_brg}'>Hapus</button>
+                        <button class='btn-edit px-4 p-2 bg-green-600 text-white rounded-lg' data-id="${response[i].id_brg}" id="btn-ubah">Ubah</button>
+                        <button class='btn-hapus px-4 p-2 bg-orange-600 text-white rounded-lg' id='${response[i].id_brg}'>Hapus</button>
                     </td>
                 </tr>`;
     }
-
 })
