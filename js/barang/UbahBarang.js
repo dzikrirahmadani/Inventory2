@@ -1,33 +1,69 @@
 $(document).ready(function(){
     
-    ubahData();
-    getMerk();
-
     function ubahData(){
+
         const id = getUrlVars('data');
         $.ajax({
             type : "POST",
-            url : "php/barang/UbahBarang.php",
+            url : "../../php/barang/GetSingleData.php",
             data : `id=${id}`,
             dataType : "JSON",
             success : function(response){
-
+                
                 $('#kd_brg').val(response.kd_brg);
-                $('#nama').val(response.nm_brg); 
-                 
+                $('#nama').val(response.nm_brg);
+                $('#stok').val(response.stok);
+                $('#spesifikasi').val(response.spesifikasi);
+
+                $('#submit').click(function(){
+                    prosesUbahData(id);
+                })
             }
+        })
+
+        getSatuan();
+        getKategori();
+        getMerk();
+    }
+
+    function prosesUbahData(id) {
+        const kd_brg = $('#kd_brg').val();
+        const nama_barang = $('#nama').val();
+        const merk = $('#merk').val();
+        const kategori = $('#kategori').val();
+        const satuan = $('#satuan').val();
+        const stok = $('#stok').val();
+        const spesifikasi = $('#spesifikasi').val();
+
+        $.ajax({
+            type : "POST", 
+            url : "../../php/barang/UbahData.php",
+            data : `id_brg=${id}&kd_brg=${kd_brg}&nama_barang=${nama_barang}&merk=${merk}&satuan=${satuan}&stok=${stok}&kategori=${kategori}&spesifikasi=${spesifikasi}`,
+            dataType : "JSON",
+            success : function(response) {
+                if( response.status == '1' ){
+                    alert(response.msg);
+                    resetForm();
+                    setTimeout(() => {
+                        document.location.href = 'barang.html';
+                    }, 1000);
+                }else{
+                    alert(response.msg);
+                }
+            } 
+
         })
     }
 
     function getSatuan(){
         $.ajax({
             type : "GET",
-            url : "php/barang/GetSatuanData.php",
+            url : "../../php/barang/GetSatuanData.php",
             dataType : "JSON",
             success : function(response){
                 let satuan = '';
                 for(let i = 0; i < response.length; i++){
-                    satuan += getShowSatuan(response, i);
+                    satuan += `<option value="${response[i].id_satuan}">${response[i].satuan}</option>`;
                 }
                 $('#satuan').append(satuan);
             }
@@ -38,12 +74,12 @@ $(document).ready(function(){
     function getKategori(){
         $.ajax({
             type : "GET",
-            url : "php/barang/GetKategoriData.php",
+            url : "../../php/barang/GetKategoriData.php",
             dataType : "JSON",
             success : function(response){
                 let kategori = '';
                 for(let i = 0; i < response.length; i++){
-                    kategori += getShowKategori(response, i);
+                    kategori += `<option value="${response[i].id_kategori}" >${response[i].nm_kategori}</option>`;
                 }
                 
                 $('#kategori').append(kategori);
@@ -54,24 +90,32 @@ $(document).ready(function(){
     function getMerk(){
         $.ajax({
             type : "GET",
-            url : "php/barang/GetMerk.php",
+            url : "../../php/barang/GetMerk.php",
             dataType : "JSON",
             success : function(response){
-                console.log(response);
                 let merk = '';
                 for(let i = 0; i < response.length; i++){
-                    merk += getShowMerk(response, i);
+                    merk += `<option value="${response[i].id_merk}">${response[i].nm_merk}</option>`;
                 }
                 $('#merk').append(merk);
             }
         })
     }
 
+    function resetForm(){
+        const kd_barang = $('#kd_brg').val('');
+        const nama_barang = $('#nama').val('');
+        const merk = $('#merk').val('');
+        const satuan = $('#satuan').val('');
+        const kategori = $('#kategori').val('');
+        const spesifikasi = $('#spesifikasi').val('');  
+    }
+
     function getUrlVars(param=null){
         if(param !== null){
             let vars = [], hash;
             let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-
+    
             for(let i = 0; i < hashes.length; i++){
                 hash = hashes[i].split('=');
                 vars.push(hash[0]);
@@ -83,4 +127,8 @@ $(document).ready(function(){
         }
     }
 
+    if( getUrlVars('data') == null ){
+        document.location.href = 'barang.html';
+    }
+    ubahData();
 })

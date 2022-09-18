@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Barang - Barang</title>
+    <title>Ubah Barang - Barang</title>
     
-    <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="assets/css/main/app-dark.css">
-    <link rel="shortcut icon" href="assets/images/logo/logoinvent.png" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/logo/logoinvent.png" type="image/png">
+    <link rel="stylesheet" href="../../assets/css/main/app.css">
+    <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
+    <link rel="shortcut icon" href="../../assets/images/logo/logoinvent.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/logo/logoinvent.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     
-<link rel="stylesheet" href="assets/css/shared/iconly.css">
+<link rel="stylesheet" href="../../assets/css/shared/iconly.css">
 
 <style>
     .icon-total-barang {
@@ -75,7 +75,7 @@
                     <div class="sidebar-header position-relative">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="logo flex">
-                                <a href="index.html"><img src="assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
+                                <a href="index.html"><img src="../../assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
                                 <h5 class="text-[20px] ml-2 -mt-[1px]">-</h5>
                             </div>
                             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -183,10 +183,11 @@
             </a>
         </header>
         <div class="page-heading flex">
-            <h3 class="sm:ml-[30%] md:ml-[35%]">Tambah Barang📑</h3>
+            <h3 class="sm:ml-[30%] md:ml-[35%] px-5" id="titleTable">Tambah Barang📑</h3>
         </div>
         <div class="card col-md-6 sm:ml-[0%] md:ml-[25%]">
             <div class="card-body">
+                <form action="">
                 <div class="row">
                     <div class="form-group">
                         <label for="kd_brg">Kode Barang</label>
@@ -195,51 +196,51 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="nama">Nama Barang :</label>
-                            <input type="text" class="form-control" id="nama" placeholder="-" autocomplete="off">
+                            <input type="text" class="form-control" id="nama" placeholder="-" autocomplete="off" required>  
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="merk">Merk :</label>
-                            <select type="text" name="" id="merk" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;">
+                            <select type="text" name="" id="merk" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;" required>
                                 <option value="">-- Merk Barang --</option>
-                            </select>
+                            </select>   
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="kategori">Kategori :</label>
-                            <select type="text" name="" id="kategori" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;">
+                            <select type="text" name="" id="kategori" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;" required>
                                 <option value="">-- Kategori Barang --</option>
-                            </select>
+                            </select>   
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="satuan">Satuan :</label>
-                            <select type="text" name="" id="satuan" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;">
+                            <select type="text" name="" id="satuan" placeholder="Nama Kategori" class="w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize;" required>
                                 <option value="">-- Satuan Barang --</option>
-                            </select>
+                            </select>   
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="stok">Stok :</label>
-                            <input type="number" class="form-control" id="stok" placeholder="0" autocomplete="off">
+                            <input type="number" class="form-control" id="stok" placeholder="0" autocomplete="off" required>    
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="spesifikasi">Spesifikasi :</label>
-                            <textarea type="text" class="form-control" id="spesifikasi" placeholder="" autocomplete="off"></textarea>
+                            <textarea type="text" class="form-control" id="spesifikasi" placeholder="" autocomplete="off" required></textarea>  
                         </div>
                     </div>
                 </div>
@@ -248,24 +249,26 @@
                         <button class=""><span class="ml-[-22px]">Batal</span></button>
                     </div>
                     <div class="col-2 bg-blue-800 px-5 py-2 ml-2 font-semibold text-white rounded-md hover:bg-opacity-80 transition ease-in-out duration-300">
-                        <button class="" id="submit"><span class="ml-[-30px]">Tambah</span></button>
+                        <button class="" id="submit"><span class="ml-[-30px] px-2">Ubah</span></button>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>
     <!-- END CONTENT -->
 
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/app.js"></script>
     
 <!-- Need: Apexcharts -->
-<script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-<script src="assets/js/pages/dashboard.js"></script>
+<script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
+<script src="../../assets/js/pages/dashboard.js"></script>
 
 <!-- My Script -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/barang/TambahBarang.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/barang/UbahBarang.js"></script>
 </body>
 
 </html>
