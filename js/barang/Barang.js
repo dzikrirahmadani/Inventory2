@@ -21,6 +21,17 @@ const readData = async () => {
                 document.location.href = `ubah-barang.html?data=${id}`;
             })
         })
+
+        // Event ketika tombol delelte di klik 
+        const btn_del = document.querySelectorAll('#btn-hapus');
+        btn_del.forEach(el => {
+            el.addEventListener('click', () => {
+                if( confirm('Apakah Yakin Ingin Menghapus ?') ){
+                    let id = el.dataset.id;
+                    document.location.href = `hapus.html?data=${id}`;
+                }
+            })
+        })
     });
 }
 
@@ -37,7 +48,7 @@ function showTable(response, i){
                 <td>${response[i].spesifikasi}</td>
                 <td>
                 <button class='btn-edit px-4 p-2 bg-green-600 text-white rounded-lg' data-id="${response[i].id_brg}" id="btn-ubah">Ubah</button>
-                    <button class='btn-hapus px-4 p-2 bg-orange-600 text-white rounded-lg' id='${response[i].id_brg}'>Hapus</button>
+                <button class='btn-hapus px-4 p-2 bg-orange-600 text-white rounded-lg' data-id="${response[i].id_brg}" id='btn-hapus'>Hapus</button>
                 </td>
                </tr>`;
 }
