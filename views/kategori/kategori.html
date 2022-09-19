@@ -54,18 +54,40 @@
         padding-left: 2px;
     }
 
-    svg.bi {
-        width: 22px;
-        height: 22px;
-    }
-
-    body.theme-dark svg.bi {
-        width: 22px;
-        height: 22px;
-    }
-
     .logo {
         height: 20px;
+    }
+    
+    div.dataTables_filter label {
+    margin-left: 40%;
+    display: grid;
+    justify-content: end;
+    }
+
+    ul.pagination {
+        display: flex;
+        justify-content: end;
+    }
+
+    .btn-tambah {
+        margin-left: 76%;
+        display: flex;
+        justify-content: end;
+        width: 110px;
+        height: 35px;
+    }
+
+    body.theme-dark button.btn-hapus {
+        margin-left: 5px;
+    }
+
+    body.theme-dark button.btn-edit, body.theme-dark button.btn-hapus {
+        border-radius: 3px;
+    }
+
+    .aksi {
+        display: flex;
+        justify-content: end;
     }
 </style>
 
@@ -186,100 +208,36 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        <div class="page-heading">
-            <h3>Kategori Barang</h3>
+        <div class="page-heading flex">
+            <h3>Kategori</h3>
+            <a href="../kategori/tambah-kategori.html" class="btn-tambah bg-blue-900 text-white rounded-md px-4  hover:bg-opacity-80 justify-center align-items-center">Tambah</a>
         </div>
-        <div class="page-content">
-            <section class="row">
-                <div class="col-12 col-lg-12">
-                    <div class="row">
-                        <div class="col-6 col-lg-3 col-md-6">
-                            <div class="card shadow-xl">
-                                <div class="card-body px-4 py-4-5">
-                                    <div class="row">
-                                        <div class="col-md-4 col-lg-12 col-xl-6 col-xxl-5 d-flex justify-content-start ">
-                                            <div class="stats-icon purple mb-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cpu-fill" viewBox="0 0 16 16">
-                                                    <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
-                                                    <path d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"/>
-                                                  </svg>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                            <h6 class="text-muted mb-1 font-semibold">Produk Elektronik</h6>
-                                            <h6 class="font-extrabold mb-0">112</h6>
-                                            <a href="produk-elektronik.html" class="text-[13px] absolute ml-[110px] font-bold">Lihat Detail ></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6">
-                            <div class="card shadow-xl">
-                                <div class="card-body px-4 py-4-5">
-                                    <div class="row">
-                                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                            <div class="stats-icon blue mb-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-lamp-fill" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd" d="M5.04.303A.5.5 0 0 1 5.5 0h5c.2 0 .38.12.46.303l3 7a.5.5 0 0 1-.363.687h-.002c-.15.03-.3.056-.45.081a32.731 32.731 0 0 1-4.645.425V13.5a.5.5 0 1 1-1 0V8.495a32.753 32.753 0 0 1-4.645-.425c-.15-.025-.3-.05-.45-.08h-.003a.5.5 0 0 1-.362-.688l3-7Z"/>
-                                                    <path d="M6.493 12.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.052.075l-.001.004-.004.01V14l.002.008a.147.147 0 0 0 .016.033.62.62 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.62.62 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411Z"/>
-                                                  </svg>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                            <h6 class="text-muted mb-1 font-semibold">Produk Furniture</h6>
-                                            <h6 class="font-extrabold mb-0">18</h6>
-                                            <a href="#" class="text-[13px] absolute ml-[110px] font-bold">Lihat Detail ></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6">
-                            <div class="card shadow-xl">
-                                <div class="card-body px-4 py-4-5">
-                                    <div class="row">
-                                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                            <div class="stats-icon green mb-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-book-half" viewBox="0 0 16 16">
-                                                    <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
-                                                  </svg>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                            <h6 class="text-muted mb-1 font-semibold">Produk Buku Pelajaran</h6>
-                                            <h6 class="font-extrabold mb-0">8</h6>
-                                            <a href="#" class="text-[13px] absolute ml-[110px] font-bold">Lihat Detail ></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6">
-                            <div class="card shadow-xl">
-                                <div class="card-body px-4 py-4-5">
-                                    <div class="row">
-                                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                            <div class="stats-icon red mb-2">
-                                                <svg class="bi" enable-background="new 0 0 512 512" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M511,215.9l-110.2-140c-1-1.3-2.6-2.1-4.2-2.4c-9.5-12.6-25.2-20.7-43.9-20.7h-30  c-6,31.4-33.6,55.1-66.7,55.1s-60.7-23.7-66.7-55.1h-30.8c-19.4,0-36.5,8.8-46.4,22.3c-0.3,0.3-0.6,0.5-0.9,0.8L1,215.9  c-1.1,1.4-1.5,3.3-1.1,5c0.4,1.7,1.6,3.2,3.3,4.1l99.8,52.5l0.1,179.7h303.2l0.1-178.2L508.8,225c1.7-0.9,2.9-2.4,3.3-4.1  C512.5,219.2,512.1,217.3,511,215.9z" fill="white"/></svg>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                            <h6 class="text-muted mb-1 font-semibold">Produk Pakaian</h6>
-                                            <h6 class="font-extrabold mb-0">11</h6>
-                                            <a href="#" class="text-[13px] absolute ml-[110px] font-bold">Lihat Detail ></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="row">
+            <table id="example" class="table table-striped shadow-lg" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th class="aksi">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="targetData">
+                    
+                </tbody>
+            </table>
         </div>
+
     </div>
     <!-- END CONTENT -->
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
     <script src="../../assets/js/bootstrap.js"></script>
     <script src="../../assets/js/app.js"></script>
     
@@ -287,6 +245,8 @@
 <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="../../assets/js/pages/dashboard.js"></script>
 
+<!-- My Javascript -->
+<script type="text/javascript" src="../../js/kategori/produk-elektronik.js"></script>
 </body>
 
 </html>
