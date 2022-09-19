@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barang - Inventory Dashboard</title>
+    <title>Merk - Barang</title>
     
-    <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="assets/css/main/app-dark.css">
-    <link rel="shortcut icon" href="assets/images/logo/logoinvent.png" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/logo/logoinvent.png" type="image/png">
+    <link rel="stylesheet" href="../../assets/css/main/app.css">
+    <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
+    <link rel="shortcut icon" href="../../assets/images/logo/logoinvent.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/logo/logoinvent.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- data -->
+    <link rel="stylesheet" href="https://">
     
-<link rel="stylesheet" href="assets/css/shared/iconly.css">
+<link rel="stylesheet" href="../../assets/css/shared/iconly.css">
 
 <style>
     .icon-total-barang {
@@ -69,7 +70,7 @@
                     <div class="sidebar-header position-relative">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="logo flex">
-                                <a href="index.html"><img src="assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
+                                <a href="index.html"><img src="../../assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
                                 <h5 class="text-[20px] ml-2 -mt-[1px]">-</h5>
                             </div>
                             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -177,26 +178,29 @@
             </a>
         </header>
         <div class="page-heading flex">
-            <h3>Barang</h3>
-            <a href="tambah-barang.html" class="ml-[80%] bg-blue-900 w-[150px] text-white rounded-md p-2  hover:bg-opacity-80"><span class="ml-[10px] font-semibold">Tambah</span></a>
+            <h3>Merk</h3>
+            <a href="tambah-merk.html" class="ml-[80%] bg-blue-900 w-[150px] text-white rounded-md p-2  hover:bg-opacity-80"><span class="ml-[22px] font-semibold">Tambah</span></a>
         </div>
         <div class="row">
             <table id="example" class="table table-striped shadow-lg" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>Id</th>
-                        <th>Nama</th>
-                        <th>Kategori</th>
-                        <th>Satuan</th>
-                        <th>Stok</th>
-                        <th>Merk</th>
-                        <th>Spesifikasi</th>
+                        <th>Nama Barang</th>
+                        <th>Nama Merk</th>
+                        <th>Masuk</th>
+                        <th>Keluar</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody id="targetData">
-                    
+                <tbody>
+                    <tr>
+                        <td>BGR-001</td>
+                        <td>Keyboard</td>
+                        <td>Logitech</td>
+                        <td>2</td>
+                        <td>5</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -215,16 +219,13 @@
             $('#example').DataTable();
         });
     </script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/app.js"></script>
     
 <!-- Need: Apexcharts -->
-<script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-<script src="assets/js/pages/dashboard.js"></script>
+<script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
+<script src="../../assets/js/pages/dashboard.js"></script>
 
-<!-- My Javascript -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/barang/Barang.js"></script>
 </body>
 
 </html>

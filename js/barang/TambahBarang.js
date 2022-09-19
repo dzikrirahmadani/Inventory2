@@ -11,17 +11,17 @@ $(document).ready(function(){
 
     function tambahData(){
 
-        const kd_barang = $('#kd_brg').val();
-        const nama_barang = $('#nama').val();
-        const merk = $('#merk').val();
-        const satuan = $('#satuan').val();
-        const stok = $('#stok').val();
-        const kategori = $('#kategori').val();
-        const spesifikasi = $('#spesifikasi').val();
+    const kd_barang = $('#kd_brg').val();
+    const nama_barang = $('#nama').val();
+    const merk = $('#merk').val();
+    const satuan = $('#satuan').val();
+    const stok = $('#stok').val();
+    const kategori = $('#kategori').val();
+    const spesifikasi = $('#spesifikasi').val();
 
         $.ajax({
             type : "POST",
-            url : "php/barang/TambahDataBarang.php",
+            url : "../../php/barang/TambahDataBarang.php",
             data : `kd_brg=${kd_barang}&nama_barang=${nama_barang}&merk=${merk}&satuan=${satuan}&stok=${stok}&kategori=${kategori}&spesifikasi=${spesifikasi}`,
             dataType : "JSON",
             success : function(response){
@@ -42,7 +42,7 @@ $(document).ready(function(){
     function getGenerateKdBrg(){
         $.ajax({
             type : "GET",
-            url : "php/barang/Get_kd_brg.php",
+            url : "../../php/barang/Get_kd_brg.php",
             dataType : "JSON",
             success : function(response){
                 let kd_barang = response;
@@ -54,7 +54,7 @@ $(document).ready(function(){
     function getSatuan(){
         $.ajax({
             type : "GET",
-            url : "php/barang/GetSatuanData.php",
+            url : "../../php/barang/GetSatuanData.php",
             dataType : "JSON",
             success : function(response){
                 let satuan = '';
@@ -70,7 +70,7 @@ $(document).ready(function(){
     function getKategori(){
         $.ajax({
             type : "GET",
-            url : "php/barang/GetKategoriData.php",
+            url : "../../php/barang/GetKategoriData.php",
             dataType : "JSON",
             success : function(response){
                 let kategori = '';
@@ -86,7 +86,7 @@ $(document).ready(function(){
     function getMerk(){
         $.ajax({
             type : "GET",
-            url : "php/barang/GetMerk.php",
+            url : "../../php/barang/GetMerk.php",
             dataType : "JSON",
             success : function(response){
                 let merk = '';
