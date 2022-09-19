@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merk - Barang</title>
+    <title>Merk - Inventory RPL</title>
     
     <link rel="stylesheet" href="../../assets/css/main/app.css">
     <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
     <link rel="shortcut icon" href="../../assets/images/logo/logoinvent.png" type="image/x-icon">
     <link rel="shortcut icon" href="../../assets/images/logo/logoinvent.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- data -->
-    <link rel="stylesheet" href="https://">
     
 <link rel="stylesheet" href="../../assets/css/shared/iconly.css">
 
@@ -55,8 +53,41 @@
         height: 19px;
         padding-left: 2px;
     }
+
     .logo {
         height: 20px;
+    }
+    
+    div.dataTables_filter label {
+    margin-left: 40%;
+    display: grid;
+    justify-content: end;
+    }
+
+    ul.pagination {
+        display: flex;
+        justify-content: end;
+    }
+
+    .btn-tambah {
+        margin-left: 76%;
+        display: flex;
+        justify-content: end;
+        width: 110px;
+        height: 35px;
+    }
+
+    body.theme-dark button.btn-hapus {
+        margin-left: 5px;
+    }
+
+    body.theme-dark button.btn-edit, body.theme-dark button.btn-hapus {
+        border-radius: 3px;
+    }
+
+    .aksi {
+        display: flex;
+        justify-content: end;
     }
 </style>
 
@@ -70,7 +101,7 @@
                     <div class="sidebar-header position-relative">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="logo flex">
-                                <a href="index.html"><img src="../../assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
+                                <a href="#"><img src="../../assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
                                 <h5 class="text-[20px] ml-2 -mt-[1px]">-</h5>
                             </div>
                             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -178,41 +209,23 @@
             </a>
         </header>
         <div class="page-heading flex">
-            <div class="col-6">
-                <h3>Merk Logitech</h3>
-            </div>
-            <div class="col-6">
-                <a href="../barang/tambah-barang.html" class="ml-[80%] bg-blue-900 w-[150px] text-white rounded-md p-2  hover:bg-opacity-80"><span class="ml-[22px] font-semibold">Tambah</span></a>
-            </div>
+            <h3>Merk</h3>
+            <a href="../merk/tambah-merk.html" class="btn-tambah bg-blue-900 text-white rounded-md px-4  hover:bg-opacity-80 justify-center align-items-center">Tambah</a>
         </div>
         <div class="row">
             <table id="example" class="table table-striped shadow-lg" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Nama</th>
-                        <th>Kategori</th>
-                        <th>Satuan</th>
-                        <th>Stok</th>
                         <th>Merk</th>
-                        <th>Spesifikasi</th>
-                        <th>Aksi</th>
+                        <th class="aksi">Aksi</th>
                     </tr>
                 </thead>
                 <tbody id="targetData">
-                    <tr>
-                        <td>BGR-001</td>
-                        <td>Keyboard</td>
-                        <td>Logitech</td>
-                        <td>2</td>
-                        <td>5</td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
 
-
-            
     </div>
     <!-- END CONTENT -->
 
@@ -232,8 +245,8 @@
 <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="../../assets/js/pages/dashboard.js"></script>
 
-<!-- My Script -->
-<script type="text/javascript" src="../../js/merk/merk.js"></script>
+<!-- My Javascript -->
+<script type="text/javascript" src="../../js/kategori/produk-elektronik.js"></script>
 </body>
 
 </html>
