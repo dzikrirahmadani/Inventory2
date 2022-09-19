@@ -1,5 +1,67 @@
 $(document).ready(function(){
+
+    function getUrlVars(param=null){
+        if(param !== null){
+            let vars = [], hash;
+            let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
     
+            for(let i = 0; i < hashes.length; i++){
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }  
+            return vars[param];
+        }else{
+            return null;
+        }
+    }
+
+    if( getUrlVars('data') == null ){
+        document.location.href = 'barang.html';
+    }
+
+    function getMerk(id=null){
+        $.ajax({
+            type : "GET",
+            url : "../../php/barang/GetMerk.php",
+            dataType : "JSON",
+            success : function(response){
+                let merk = '';
+                for(let i = 0; i < response.length; i++){
+                    if(response[i].id_merk != id){
+                        merk += `<option value="${response[i].id_merk}">${response[i].nm_merk}</option>`;
+                    }else{
+                        merk += `<option value="${response[i].id_merk}" selected>${response[i].nm_merk}</option>`;
+                    }
+                }
+                $('#merk').append(merk);
+            }
+        })
+    }
+
+    function getKategori(id=null){
+        console.log(id)
+        $.ajax({
+            type : "GET",
+            url : "../../php/barang/GetKategoriData.php",
+            dataType : "JSON",
+            success : function(response){
+                let kategori = '';
+                for(let i = 0; i < response.length; i++){
+                    console.log(response[i].id_kategori);
+                    if(response[i].id_kategori != id){
+                        kategori += `<option value="${response[i].id_kategori}" >${response[i].nm_kategori}</option>`;
+                    }else{
+                        kategori += `<option value="${response[i].id_kategori}"  selected>${response[i].nm_kategori}</option>`;
+                    }
+
+                }
+                
+                $('#kategori').append(kategori);
+            }
+        })
+    }
+
     function ubahData(){
 
         const id = getUrlVars('data');
@@ -9,21 +71,41 @@ $(document).ready(function(){
             data : `id=${id}`,
             dataType : "JSON",
             success : function(response){
-                
+               
                 $('#kd_brg').val(response.kd_brg);
                 $('#nama').val(response.nm_brg);
                 $('#stok').val(response.stok);
                 $('#spesifikasi').val(response.spesifikasi);
 
+                getMerk(response.merk);
+                getKategori(response.kategori);
+                getSatuan(response.satuan);
+
                 $('#submit').click(function(){
-                    prosesUbahData(id);
+                    prosesUbahData(id); 
                 })
             }
         })
+    }
 
-        getSatuan();
-        getKategori();
-        getMerk();
+    function getSatuan( id=null ){
+        $.ajax({
+            type : "GET",
+            url : "../../php/barang/GetSatuanData.php",
+            dataType : "JSON",
+            success : function(response){
+                let satuan = '';
+                for(let i = 0; i < response.length; i++){
+                    if( response[i].id_satuan != id) {
+                        satuan += `<option value="${response[i].id_satuan}">${response[i].satuan}</option>`;
+                    }else{
+                        satuan += `<option value="${response[i].id_satuan}" selected>${response[i].satuan}</option>`;
+                    }
+                }
+                $('#satuan').append(satuan);
+            }
+        })
+
     }
 
     function prosesUbahData(id) {
@@ -55,53 +137,6 @@ $(document).ready(function(){
         })
     }
 
-    function getSatuan(){
-        $.ajax({
-            type : "GET",
-            url : "../../php/barang/GetSatuanData.php",
-            dataType : "JSON",
-            success : function(response){
-                let satuan = '';
-                for(let i = 0; i < response.length; i++){
-                    satuan += `<option value="${response[i].id_satuan}">${response[i].satuan}</option>`;
-                }
-                $('#satuan').append(satuan);
-            }
-        })
-
-    }
-
-    function getKategori(){
-        $.ajax({
-            type : "GET",
-            url : "../../php/barang/GetKategoriData.php",
-            dataType : "JSON",
-            success : function(response){
-                let kategori = '';
-                for(let i = 0; i < response.length; i++){
-                    kategori += `<option value="${response[i].id_kategori}" >${response[i].nm_kategori}</option>`;
-                }
-                
-                $('#kategori').append(kategori);
-            }
-        })
-    }
-
-    function getMerk(){
-        $.ajax({
-            type : "GET",
-            url : "../../php/barang/GetMerk.php",
-            dataType : "JSON",
-            success : function(response){
-                let merk = '';
-                for(let i = 0; i < response.length; i++){
-                    merk += `<option value="${response[i].id_merk}">${response[i].nm_merk}</option>`;
-                }
-                $('#merk').append(merk);
-            }
-        })
-    }
-
     function resetForm(){
         const kd_barang = $('#kd_brg').val('');
         const nama_barang = $('#nama').val('');
@@ -109,26 +144,6 @@ $(document).ready(function(){
         const satuan = $('#satuan').val('');
         const kategori = $('#kategori').val('');
         const spesifikasi = $('#spesifikasi').val('');  
-    }
-
-    function getUrlVars(param=null){
-        if(param !== null){
-            let vars = [], hash;
-            let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    
-            for(let i = 0; i < hashes.length; i++){
-                hash = hashes[i].split('=');
-                vars.push(hash[0]);
-                vars[hash[0]] = hash[1];
-            }  
-            return vars[param];
-        }else{
-            return null;
-        }
-    }
-
-    if( getUrlVars('data') == null ){
-        document.location.href = 'barang.html';
     }
     ubahData();
 })
