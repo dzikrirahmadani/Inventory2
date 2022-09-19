@@ -58,16 +58,29 @@
     .logo {
         height: 20px;
     }
+
     div.dataTables_filter label {
-        margin-left: 60.5%;
+        margin-left: 40%;
         display: flex;
         justify-content: end;
+    }
+
+    input.form-control {
+        margin-left: 10px;
     }
 
     ul.pagination {
         display: flex;
         justify-content: end;
     }
+
+    .btn-tambah {
+        /* margin-left: 80%; */
+        display: flex;
+        justify-content: end;
+        width: 120px;
+    }
+
 </style>
 
 </head>
@@ -189,7 +202,7 @@
         </header>
         <div class="page-heading flex">
             <h3>Vendor</h3>
-            <a href="#" class="ml-[35%] sm:ml-[60%] md:ml-[70%] lg:ml-[77%] xl:ml-[77%] bg-blue-900 w-[100px] text-white rounded-md py-2  hover:bg-opacity-80 flex justify-center align-items-center">Tambah</a>
+            <a href="#" class="btn-tambah bg-blue-900 text-white rounded-md px-4  hover:bg-opacity-80 justify-center align-items-center ml-[40%] md:ml-[70%] lg:ml-[77%] xl:ml-[80%]">Tambah</a>
         </div>
         <div class="row">
             <table id="example" class="table table-striped shadow-lg" style="width:100%">
