@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kategori - Inventory RPL</title>
+    <title>Tambah Kategori - Barang</title>
     
     <link rel="stylesheet" href="../../assets/css/main/app.css">
     <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
@@ -53,41 +53,15 @@
         height: 19px;
         padding-left: 2px;
     }
-
     .logo {
         height: 20px;
     }
-    
-    div.dataTables_filter label {
-    margin-left: 40%;
-    display: grid;
-    justify-content: end;
+    body.theme-dark select#nameV {
+        background-color: #1b1b29;
     }
-
-    ul.pagination {
-        display: flex;
-        justify-content: end;
-    }
-
-    .btn-tambah {
-        margin-left: 76%;
-        display: flex;
-        justify-content: end;
-        width: 110px;
-        height: 35px;
-    }
-
-    body.theme-dark button.btn-hapus {
-        margin-left: 5px;
-    }
-
-    body.theme-dark button.btn-edit, body.theme-dark button.btn-hapus {
-        border-radius: 3px;
-    }
-
-    .aksi {
-        display: flex;
-        justify-content: end;
+    body.theme-dark .col-2 {
+        background-color: #1b1b29;
+        color: white;
     }
 </style>
 
@@ -101,7 +75,7 @@
                     <div class="sidebar-header position-relative">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="logo flex">
-                                <a href="#"><img src="../../assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
+                                <a href="index.html"><img src="../../assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
                                 <h5 class="text-[20px] ml-2 -mt-[1px]">-</h5>
                             </div>
                             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -131,7 +105,7 @@
                         </li>
                         
                         <li class="sidebar-item has-sub active">
-                            <a href="../barang/barang.html" class='sidebar-link'>
+                            <a href="#" class='sidebar-link'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-fill" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z"/>
                                 </svg>
@@ -209,35 +183,31 @@
             </a>
         </header>
         <div class="page-heading flex">
-            <h3>Kategori</h3>
-            <a href="../kategori/tambah-kategori.html" class="btn-tambah bg-blue-900 text-white rounded-md px-4  hover:bg-opacity-80 justify-center align-items-center">Tambah</a>
+            <h3 class="" id="titleTable">Tambah Kategori</h3>
         </div>
-        <div class="row">
-            <table id="example" class="table table-striped shadow-lg" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Kategori</th>
-                        <th class="aksi">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="targetData">
-                    
-                </tbody>
-            </table>
+        <div class="card col-md-7">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="kategori">Kategori :</label>
+                            <input type="text" class="form-control" id="kategori" placeholder="-" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 bg-slate-200 px-5 py-2 ml-2 font-semibold text-slate-900 rounded-md hover:bg-opacity-50 transition ease-in-out duration-300">
+                        <button class=""><span class="ml-[-18px]">Batal</span></button>
+                    </div>
+                    <div class="col-2 bg-blue-800 px-5 py-2 ml-2 font-semibold text-white rounded-md hover:bg-opacity-80 transition ease-in-out duration-300">
+                        <button class="" id="submit"><span class="ml-[-25px]">Tambah</span></button>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
     <!-- END CONTENT -->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
     <script src="../../assets/js/bootstrap.js"></script>
     <script src="../../assets/js/app.js"></script>
     
@@ -245,8 +215,10 @@
 <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="../../assets/js/pages/dashboard.js"></script>
 
-<!-- My Javascript -->
-<script type="text/javascript" src="../../js/kategori/kategori.js"></script>
+<!-- My Script -->
+<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/kategori/ubah-kategori.js"></script>
 </body>
 
 </html>

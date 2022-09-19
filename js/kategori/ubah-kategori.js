@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     function getUrlVars(param=null){
         if(param !== null){
             let vars = [], hash;
@@ -22,23 +21,21 @@ $(document).ready(function(){
 
     function prosesUbahData() {
 
-        const id_vendor = getUrlVars('data');
-        const nm_vendor = $('#nm_vendor').val();
-        const alamat = $('#alamat').val();
-        const no_telp = $('#no_telp').val();
+        const id_kategori = getUrlVars('data');
+        const nm_kategori = $('#kategori').val();
         
         $.ajax({
             type : "POST",
             url : "../../php/vendor/ProsesUbahData.php",
-            data : `id_vendor=${id_vendor}&nm_vendor=${nm_vendor}&alamat=${alamat}&no_telp=${no_telp}`,
+            data : `id_kategori=${id_kategori}&nm_vendor=${nm_vendor}&alamat=${alamat}&no_telp=${no_telp}`,
             dataType : "JSON",
             success : function(response){
                 if( response.status == '1' ){
                     alert(response.msg);
                     resetForm();
-                    setTimeout( () => {
+                    setTimeout(() => {
                         document.location.href = 'vendor.html';
-                    }, 500);
+                    }, 500)
                 }else{
                     alert(response.msg);
                 }
@@ -53,19 +50,21 @@ $(document).ready(function(){
 
     const ReadData = () => {
         
-        const id_vendor = getUrlVars('data');
+        const id_kategori = getUrlVars('data');
         $.ajax({
             type : "POST",
-            url : "../../php/vendor/GetSingleData.php",
-            data : `id_vendor=${id_vendor}`,
+            url : "../../php/kategori/GetSingleData.php",
+            data : `id_kategori=${id_kategori}`,
             dataType : "JSON",
             success : function(response) {
-                $('#nm_vendor').val(response.nm_vendor);
-                $('#alamat').val(response.alamat);
-                $('#no_telp').val(response.no_telp);
+                $('#kategori').val(response.nm_kategori);
             }
         })
 
     }
+
+    const resetForm = () => {
+        $('#kategori').val('');
+    }
     ReadData();
-}) 
+})
