@@ -29,7 +29,7 @@ if( $_POST ){
         $result['msg'] = 'Data berhasil diubah !';
     }else{
         $result['status'] = '0';
-        $result['msg'] = mysqli_error($conn);
+        $result['msg'] = 'Data gagal diubah ';
     }
 
     echo json_encode($result);

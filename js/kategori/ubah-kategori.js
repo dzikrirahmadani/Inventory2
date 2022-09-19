@@ -20,21 +20,20 @@ $(document).ready(function(){
     }
 
     function prosesUbahData() {
-
         const id_kategori = getUrlVars('data');
         const nm_kategori = $('#kategori').val();
         
         $.ajax({
             type : "POST",
-            url : "../../php/vendor/ProsesUbahData.php",
-            data : `id_kategori=${id_kategori}&nm_vendor=${nm_vendor}&alamat=${alamat}&no_telp=${no_telp}`,
+            url : "../../php/kategori/UbahKategori.php",
+            data : `id_kategori=${id_kategori}&nm_kategori=${nm_kategori}`,
             dataType : "JSON",
             success : function(response){
                 if( response.status == '1' ){
                     alert(response.msg);
                     resetForm();
                     setTimeout(() => {
-                        document.location.href = 'vendor.html';
+                        document.location.href = 'kategori.html';
                     }, 500)
                 }else{
                     alert(response.msg);
@@ -44,7 +43,7 @@ $(document).ready(function(){
 
     }
 
-    $('#btn-ubah').click(() => {
+    $('#submit').click(() => {
         prosesUbahData();
     })
 

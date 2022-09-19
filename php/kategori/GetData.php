@@ -1,7 +1,7 @@
 <?php
 require_once './../config.php';
 
-    $query = "SELECT * FROM tbl_kategori ORDER BY id_kategori ASC";
+    $query = "SELECT * FROM tbl_kategori ORDER BY id_kategori DESC";
 
     $sql = mysqli_query($conn, $query);
     
