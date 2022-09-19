@@ -178,22 +178,28 @@
             </a>
         </header>
         <div class="page-heading flex">
-            <h3>Merk</h3>
-            <a href="../barang/tambah-barang.html" class="ml-[80%] bg-blue-900 w-[150px] text-white rounded-md p-2  hover:bg-opacity-80"><span class="ml-[22px] font-semibold">Tambah</span></a>
+            <div class="col-6">
+                <h3>Merk Logitech</h3>
+            </div>
+            <div class="col-6">
+                <a href="../barang/tambah-barang.html" class="ml-[80%] bg-blue-900 w-[150px] text-white rounded-md p-2  hover:bg-opacity-80"><span class="ml-[22px] font-semibold">Tambah</span></a>
+            </div>
         </div>
         <div class="row">
             <table id="example" class="table table-striped shadow-lg" style="width:100%">
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nama Barang</th>
-                        <th>Nama Merk</th>
-                        <th>Masuk</th>
-                        <th>Keluar</th>
+                        <th>Nama</th>
+                        <th>Kategori</th>
+                        <th>Satuan</th>
+                        <th>Stok</th>
+                        <th>Merk</th>
+                        <th>Spesifikasi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="targetData">
                     <tr>
                         <td>BGR-001</td>
                         <td>Keyboard</td>
@@ -226,6 +232,8 @@
 <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="../../assets/js/pages/dashboard.js"></script>
 
+<!-- My Script -->
+<script type="text/javascript" src="../../js/merk/merk.js"></script>
 </body>
 
 </html>
