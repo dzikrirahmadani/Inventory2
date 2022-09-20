@@ -1,3 +1,8 @@
+const session = sessionStorage.getItem('id');
+if( session ){
+    document.location.href = 'dash/dashbor.html';
+}
+
 $(document).ready(function(){
 
     $('#btn-login').click(() => {
