@@ -208,15 +208,14 @@
             <table id="example" class="table table-striped shadow-lg" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Kode</th>
                         <th>Nama Ruangan</th>
                         <th>Spesifikasi</th>
                         <th class="aksi">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="targetData">
+                    <!-- <tr>
                         <td>1</td>
                         <td>LAB-01</td>
                         <td>Lab RPL R-3</td>
@@ -234,7 +233,7 @@
                                 </svg>
                             </button>
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -259,6 +258,9 @@
 <!-- Need: Apexcharts -->
 <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="../../assets/js/pages/dashboard.js"></script>
+
+<!-- My Javascript -->
+<script type="text/javascript" src="../../js/ruangan/ruangan.js"></script>
 
 </body>
 
