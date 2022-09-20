@@ -16,10 +16,6 @@ $(document).ready(function(){
         }
     }
 
-    if( getUrlVars('data') == null ){
-        document.location.href = 'barang.html';
-    }
-
     function getMerk(id=null){
         $.ajax({
             type : "GET",
@@ -117,24 +113,29 @@ $(document).ready(function(){
         const stok = $('#stok').val();
         const spesifikasi = $('#spesifikasi').val();
 
-        $.ajax({
-            type : "POST", 
-            url : "../../php/barang/UbahData.php",
-            data : `id_brg=${id}&kd_brg=${kd_brg}&nama_barang=${nama_barang}&merk=${merk}&satuan=${satuan}&stok=${stok}&kategori=${kategori}&spesifikasi=${spesifikasi}`,
-            dataType : "JSON",
-            success : function(response) {
-                // if( response.status == '1' ){
-                //     alert(response.msg);
-                //     resetForm();
-                //     setTimeout(() => {
-                //         document.location.href = 'barang.html';
-                //     }, 1000);
-                // }else{
-                //     alert(response.msg);
-                // }
-            } 
-
-        })
+        if( !kd_brg || !nama_barang || !merk || !kategori || !satuan || !stok || !spesifikasi ){
+            alert('Tolong Isi Semua filead');
+        }{
+            $.ajax({
+                type : "POST", 
+                url : "../../php/barang/UbahData.php",
+                data : `id_brg=${id}&kd_brg=${kd_brg}&nama_barang=${nama_barang}&merk=${merk}&satuan=${satuan}&stok=${stok}&kategori=${kategori}&spesifikasi=${spesifikasi}`,
+                dataType : "JSON",
+                success : function(response) {
+                    if( response.status == '1' ){
+                        alert(response.msg);
+                        resetForm();
+                        setTimeout(() => {
+                            document.location.href = 'barang.html';
+                        }, 1000);
+                    }else{
+                        alert(response.msg);
+                    }
+                } 
+    
+            })
+        }
+        
     }
 
     function resetForm(){
