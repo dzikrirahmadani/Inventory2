@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     function hapusData(id){
         let id_brg = id;
         $.ajax({    

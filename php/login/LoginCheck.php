@@ -12,9 +12,9 @@ if( $_POST ){
 
     if( $sql->num_rows > 0 ){
         $row = mysqli_fetch_assoc($sql);
-        $_SESSION['usernmae'] = $row['username'];
         $result['status'] = '1';
         $result['msg'] = "Login Berhasil !";
+        $result['enkripsi'] = hash('md5', $row);
     }else{
         $result['status'] = '0';
         $result['msg'] = "username / password salah !";

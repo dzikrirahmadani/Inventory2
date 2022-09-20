@@ -8,7 +8,6 @@ $(document).ready(function(){
 
         const username = $('#username').val();
         const password = $('#password').val();
-        const check = $('#check');
 
         $.ajax({
             type : "POST",
@@ -16,8 +15,12 @@ $(document).ready(function(){
             data : `username=${username}&password=${password}&check=${check}`,
             dataType : "JSON",
             success : (response) => {
+
+                console.log(response);
+
                 if( response.status == 1 ){
                     document.location.href = 'dashbor.html';
+                    document.cookie = "id="
                 }else{
                     document.getElementById('message').innerHTML = `<i>${response.msg}</i>`;
                 }
