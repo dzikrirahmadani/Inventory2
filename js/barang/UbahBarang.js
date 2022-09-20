@@ -114,7 +114,7 @@ $(document).ready(function(){
         const spesifikasi = $('#spesifikasi').val();
 
         if( !kd_brg || !nama_barang || !merk || !kategori || !satuan || !stok || !spesifikasi ){
-            alert('Tolong Isi Semua filead');
+            alert('Tolong Isi Semua field');
         }{
             $.ajax({
                 type : "POST", 

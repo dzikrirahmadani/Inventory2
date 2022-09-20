@@ -67,5 +67,11 @@ $(document).ready(function(){
         })
 
     }
+
+    const resetForm = () => {
+        $('#nm_vendor').val('');
+        $('#alamat').val('');
+        $('#no_telp').val('');
+    }
     ReadData();
 }) 
