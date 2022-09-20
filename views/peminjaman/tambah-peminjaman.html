@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendor</title>
+    <title>Tambah Peminjaman</title>
     
     <link rel="stylesheet" href="../../assets/css/main/app.css">
     <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
     <link rel="shortcut icon" href="../../assets/images/logo/logoinvent.png" type="image/x-icon">
     <link rel="shortcut icon" href="../../assets/images/logo/logoinvent.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- data -->
-    <link rel="stylesheet" href="https://">
     
 <link rel="stylesheet" href="../../assets/css/shared/iconly.css">
 
@@ -58,41 +56,19 @@
     .logo {
         height: 20px;
     }
-
-    div.dataTables_filter label {
-    margin-left: 40%;
-    display: grid;
-    justify-content: end;
+    body.theme-dark select#nameV {
+        background-color: #1b1b29;
     }
-
-    ul.pagination {
-        display: flex;
-        justify-content: end;
+    body.theme-dark button.flex {
+        border-radius: 5px;
+        background-color: #1b1b29;
+        color: white;
     }
-
-    .btn-tambah {
-        margin-left: 89%;
-        display: flex;
-        justify-content: end;
-        width: 110px;
-        height: 35px;
+    body.theme-dark select {
+        border-radius: 5px;
+        background-color: #1b1b29;
+        color: white;
     }
-
-    
-    body.theme-dark button.btn-hapus {
-        margin-left: 5px;
-    }
-
-    body.theme-dark button.btn-edit, body.theme-dark button.btn-hapus {
-        border-radius: 3px;
-    }
-
-    .aksi {
-        margin-left: -25px;
-        display: flex;
-        justify-content: end;
-    }
-
 </style>
 
 </head>
@@ -105,7 +81,7 @@
                     <div class="sidebar-header position-relative">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="logo flex">
-                                <a href="#"><img src="../../assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
+                                <a href="index.html"><img src="../../assets/images/logo/logoinvent.png" alt="Logo" srcset="" class="w-5 mt-[2px]"></a>
                                 <h5 class="text-[20px] ml-2 -mt-[1px]">-</h5>
                             </div>
                             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -152,10 +128,10 @@
                                     <a href="../satuan/satuan.html">Satuan</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="../merk/merk.html">Merk</a>
+                                    <a href="../vendor/vendor.html">Vendor</a>
                                 </li>
                             </ul>
-                            <li class="sidebar-item active">
+                            <li class="sidebar-item">
                                 <a href="../vendor/vendor.html" class='sidebar-link'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon-vendor bi bi-bag-heart-fill" viewBox="0 0 16 16">
                                         <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
@@ -182,7 +158,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="../peminjaman/peminjaman.html" class='sidebar-link'>
+                                <a href="../peminjaman/peminjaman.html active" class='sidebar-link'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon-peminjaman bi bi-file-arrow-down-fill" viewBox="0 0 16 16">
                                         <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5z"/>
                                     </svg>
@@ -212,61 +188,62 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        <div class="page-heading">
-            <h3>Vendor</h3>
-            <a href="tambah-vendor.html" class="btn-tambah bg-blue-900 text-white rounded-md px-4  hover:bg-opacity-80 justify-center align-items-center">Tambah</a>
+        <div class="page-heading flex">
+            <h3 class="">Tambah Peminjaman</h3>
         </div>
-        <div class="row">
-            <table id="example" class="table table-striped shadow-md" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nama Vendor</th>
-                        <th>Alamat</th>
-                        <th>No.Telp</th>
-                        <th class="aksi">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="targetData">
-                    <!-- <tr>
-                        <td>1</td>
-                        <td>PT.Sukamaju</td>
-                        <td>Jl Suka Maju No.21</td>
-                        <td>08123456789</td>
+        <div class="card col-md-7">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="nm_peminjaman">Id :</label>
+                                <input type="text" class="form-control" id="nm_peminjaman" placeholder="-">
+                            </div>
+                        </div>
 
-                        <td class="aksi">
-                            <button class='btn-edit px-2 p-1 bg-green-600 text-white rounded-[3px]' data-id="${response[i].id_brg} id="btn-ubah">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                            </svg>
-                            </button>
-                            <button class='ml-1 btn-hapus px-2 p-1 bg-orange-600 text-white rounded-[3px]' data-id="${response[i].id_brg}" id='btn-hapus'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                </svg>
-                            </button>
-                        </td>
-                    </tr> 
-                    !-->
-                </tbody>
-            </table>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="nm_pengajuan">Nama Admin :</label>
+                                <input type="text" class="form-control" id="nm_pengajuan" placeholder="-">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="alamat">Tanggal Pengajuan :</label>
+                                <input type="date" class="form-control" id="alamat" placeholder="-">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="alamat">Nama Vendor :</label>
+                                <input type="text" class="form-control" id="alamat" placeholder="-">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="alamat">Status :</label>
+                                <input type="text" class="form-control" id="alamat" placeholder="-">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row btn-tambah">
+                        <div class="col-2">
+                            <button class="flex py-1 px-4 bg-slate-200 ml-2 font-semibold text-slate-900 rounded-md hover:bg-opacity-50 transition ease-in-out duration-300"><span class="">Batal</span></button>
+                        </div>
+                        <div class="col-2">
+                            <button class="flex py-1 px-4 ml-2 bg-blue-800 font-semibold text-white rounded-md hover:bg-opacity-80 transition ease-in-out duration-300" id="submit"><span class="">Tambah</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-            
     </div>
     <!-- END CONTENT -->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
     <script src="../../assets/js/bootstrap.js"></script>
     <script src="../../assets/js/app.js"></script>
     
@@ -275,7 +252,8 @@
 <script src="../../assets/js/pages/dashboard.js"></script>
 
 <!-- My Script -->
-<script type="text/javascript" src="../../js/vendor/vendor.js"></script>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/"></script>
 </body>
 
 </html>

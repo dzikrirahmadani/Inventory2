@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendor</title>
+    <title>Pengajuan</title>
     
     <link rel="stylesheet" href="../../assets/css/main/app.css">
     <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
@@ -88,7 +88,6 @@
     }
 
     .aksi {
-        margin-left: -25px;
         display: flex;
         justify-content: end;
     }
@@ -155,7 +154,7 @@
                                     <a href="../merk/merk.html">Merk</a>
                                 </li>
                             </ul>
-                            <li class="sidebar-item active">
+                            <li class="sidebar-item">
                                 <a href="../vendor/vendor.html" class='sidebar-link'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon-vendor bi bi-bag-heart-fill" viewBox="0 0 16 16">
                                         <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
@@ -172,7 +171,7 @@
                                     <span>Ruangan</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item">
+                            <li class="sidebar-item active">
                                 <a href="../pengajuan/pengajuan.html" class='sidebar-link'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon-pengajuan bi bi-send-check-fill" viewBox="0 0 16 16">
                                         <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47L15.964.686Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
@@ -213,26 +212,29 @@
             </a>
         </header>
         <div class="page-heading">
-            <h3>Vendor</h3>
-            <a href="tambah-vendor.html" class="btn-tambah bg-blue-900 text-white rounded-md px-4  hover:bg-opacity-80 justify-center align-items-center">Tambah</a>
+            <h3>Pengajuan</h3>
+            <a href="tambah-pengajuan.html" class="btn-tambah bg-blue-900 text-white rounded-md px-4  hover:bg-opacity-80 justify-center align-items-center">Tambah</a>
         </div>
         <div class="row">
             <table id="example" class="table table-striped shadow-md" style="width:100%">
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Nama Admin</th>
+                        <th>Tanggal</th>
                         <th>Nama Vendor</th>
-                        <th>Alamat</th>
-                        <th>No.Telp</th>
+                        <th>Status</th>
                         <th class="aksi">Aksi</th>
                     </tr>
                 </thead>
-                <tbody id="targetData">
-                    <!-- <tr>
-                        <td>1</td>
-                        <td>PT.Sukamaju</td>
-                        <td>Jl Suka Maju No.21</td>
-                        <td>08123456789</td>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Bp HJ Andre</td>
+                        <td>02-09-2022</td>
+                        <td>PT jaya</td>
+                        <td>Guru</td>
+
 
                         <td class="aksi">
                             <button class='btn-edit px-2 p-1 bg-green-600 text-white rounded-[3px]' data-id="${response[i].id_brg} id="btn-ubah">
@@ -247,8 +249,7 @@
                                 </svg>
                             </button>
                         </td>
-                    </tr> 
-                    !-->
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -275,7 +276,7 @@
 <script src="../../assets/js/pages/dashboard.js"></script>
 
 <!-- My Script -->
-<script type="text/javascript" src="../../js/vendor/vendor.js"></script>
+<script type="text/javascript" src="../../js/"></script>
 </body>
 
 </html>
