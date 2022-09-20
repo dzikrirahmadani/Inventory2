@@ -1,4 +1,4 @@
-/* for search : page-heading */
+/* for search : auth-subtitle */
 
 @font-face {
   font-display: swap;
@@ -565,7 +565,7 @@ p {
   margin-bottom: 1rem;
   margin-top: 0;
 }
-abbr[title] {
+abbr[auth-] {
   cursor: help;
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
@@ -4439,7 +4439,7 @@ fieldset:disabled .btn {
 .card {
   --bs-card-spacer-y: 1rem;
   --bs-card-spacer-x: 1rem;
-  --bs-card-title-spacer-y: 0.5rem;
+  --bs-card-auth--spacer-y: 0.5rem;
   --bs-card-border-width: 1px;
   --bs-card-border-color: rgba(0, 0, 0, 0.125);
   --bs-card-border-radius: 0.7rem;
@@ -4492,13 +4492,13 @@ fieldset:disabled .btn {
   flex: 1 1 auto;
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
 }
-.card-title {
-  margin-bottom: var(--bs-card-title-spacer-y);
+.card-auth- {
+  margin-bottom: var(--bs-card-auth--spacer-y);
 }
-.card-subtitle {
-  margin-top: calc(var(--bs-card-title-spacer-y) * -0.5);
+.card-subauth- {
+  margin-top: calc(var(--bs-card-auth--spacer-y) * -0.5);
 }
-.card-subtitle,
+.card-subauth-,
 .card-text:last-child {
   margin-bottom: 0;
 }
@@ -5517,7 +5517,7 @@ fieldset:disabled .btn {
   --bs-modal-header-padding: 1rem 1rem;
   --bs-modal-header-border-color: var(--bs-border-color);
   --bs-modal-header-border-width: 1px;
-  --bs-modal-title-line-height: 1.5;
+  --bs-modal-auth--line-height: 1.5;
   --bs-modal-footer-gap: 0.5rem;
   --bs-modal-footer-bg: ;
   --bs-modal-footer-border-color: var(--bs-border-color);
@@ -5618,8 +5618,8 @@ fieldset:disabled .btn {
   padding: calc(var(--bs-modal-header-padding-y) * 0.5)
     calc(var(--bs-modal-header-padding-x) * 0.5);
 }
-.modal-title {
-  line-height: var(--bs-modal-title-line-height);
+.modal-auth- {
+  line-height: var(--bs-modal-auth--line-height);
   margin-bottom: 0;
 }
 .modal-body {
@@ -6851,7 +6851,7 @@ fieldset:disabled .btn {
   padding: calc(var(--bs-offcanvas-padding-y) * 0.5)
     calc(var(--bs-offcanvas-padding-x) * 0.5);
 }
-.offcanvas-title {
+.offcanvas-auth- {
   line-height: 1.5;
   margin-bottom: 0;
 }
@@ -16666,7 +16666,7 @@ body .bi:before {
   background: linear-gradient(180deg, #25a6f1, #54b9ff);
   box-shadow: 1px 2px 5px rgba(47, 170, 244, 0.5);
 }
-.card.card-statistic .card-title {
+.card.card-statistic .card-auth- {
   color: hsla(0, 0%, 100%, 0.651);
   font-size: 1.3rem;
   font-weight: 400;
@@ -16703,7 +16703,7 @@ body .bi:before {
 .card .card-content {
   position: relative;
 }
-.card .card-title {
+.card .card-auth- {
   font-size: 1.2rem;
 }
 .card .card-body {
