@@ -41,6 +41,7 @@ $(document).ready(function(){
                 if( response.status == 1 ){
                     document.location.href = 'dash/dashbor.html';
                     document.cookie = `id=${response.hash}`;
+                    sessionStorage.setItem("id", response.hash);
                 }else{
                     document.getElementById('message').innerHTML = `<i>${response.msg}</i>`;
                 }

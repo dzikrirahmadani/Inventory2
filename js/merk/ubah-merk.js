@@ -1,4 +1,11 @@
 $(document).ready(function(){
+
+    // cek session login
+    const session = sessionStorage.getItem('id');
+    if( !session ){
+        document.location.href = '../login.html';
+    }
+
     function getUrlVars(param=null){
         if(param !== null){
             let vars = [], hash;

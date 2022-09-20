@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+    // cek session login
+    const session = sessionStorage.getItem('id');
+    if( !session ){
+        document.location.href = '../login.html';
+    }
+
     function hapusData(id){
         let id_brg = id;
         $.ajax({    
