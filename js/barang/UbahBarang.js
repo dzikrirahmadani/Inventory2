@@ -123,27 +123,27 @@ $(document).ready(function(){
             data : `id_brg=${id}&kd_brg=${kd_brg}&nama_barang=${nama_barang}&merk=${merk}&satuan=${satuan}&stok=${stok}&kategori=${kategori}&spesifikasi=${spesifikasi}`,
             dataType : "JSON",
             success : function(response) {
-                if( response.status == '1' ){
-                    alert(response.msg);
-                    resetForm();
-                    setTimeout(() => {
-                        document.location.href = 'barang.html';
-                    }, 1000);
-                }else{
-                    alert(response.msg);
-                }
+                // if( response.status == '1' ){
+                //     alert(response.msg);
+                //     resetForm();
+                //     setTimeout(() => {
+                //         document.location.href = 'barang.html';
+                //     }, 1000);
+                // }else{
+                //     alert(response.msg);
+                // }
             } 
 
         })
     }
 
     function resetForm(){
-        const kd_barang = $('#kd_brg').val('');
-        const nama_barang = $('#nama').val('');
-        const merk = $('#merk').val('');
-        const satuan = $('#satuan').val('');
-        const kategori = $('#kategori').val('');
-        const spesifikasi = $('#spesifikasi').val('');  
+        $('#kd_brg').val('');
+        $('#nama').val('');
+        $('#merk').val('');
+        $('#satuan').val('');
+        $('#kategori').val('');
+        $('#spesifikasi').val('');  
     }
     ubahData();
 })
