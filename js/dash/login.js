@@ -29,7 +29,6 @@ $(document).ready(function(){
 
         const username = $('#username').val();
         const password = $('#password').val();
-        console.log(username, password);
 
         $.ajax({
             type : "POST",
@@ -37,11 +36,10 @@ $(document).ready(function(){
             data : `username=${username}&password=${password}&check=${check}`,
             dataType : "JSON",
             success : (response) => {
-                console.log(response);
                 if( response.status == 1 ){
                     document.location.href = 'dash/dashbor.html';
-                    document.cookie = `id=${response.hash}`;
                     sessionStorage.setItem("id", response.hash);
+                    sessionStorage.setItem("I", response.id_admin);
                 }else{
                     document.getElementById('message').innerHTML = `<i>${response.msg}</i>`;
                 }
