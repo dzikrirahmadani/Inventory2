@@ -5,7 +5,6 @@ if( $_POST ){
 
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
-    $check = htmlspecialchars($_POST['check']);
 
     $query = "SELECT username, password FROM tbl_admin WHERE username = '$username' && password = '$password'";
     $sql = mysqli_query($conn, $query);
@@ -14,7 +13,7 @@ if( $_POST ){
         $row = mysqli_fetch_assoc($sql);
         $result['status'] = '1';
         $result['msg'] = "Login Berhasil !";
-        $result['enkripsi'] = hash('md5', $row);
+        $result['hash'] = hash('sha1', $row['username']);
     }else{
         $result['status'] = '0';
         $result['msg'] = "username / password salah !";
