@@ -1,3 +1,26 @@
+// cek session login
+const session = sessionStorage.getItem('id');
+if( !session ){
+    document.location.href = '../login.html';
+}
+
+// Event ketika tombol logout di klik
+const btn_out = document.querySelector('#btn-out');
+btn_out.addEventListener('click', () => {
+    if( confirm('Apakah Yakin Ingin Keluar ?') ){
+        logout();
+    }
+})
+
+const logout = () => {
+
+    document.cookie = "id=''";
+    sessionStorage.setItem('id', '');
+    sessionStorage.setItem('I', '');
+
+    document.location.href = '../login.html';
+}
+
 $(document).ready(function(){
     
     getKategori();
@@ -111,11 +134,11 @@ $(document).ready(function(){
     }
 
     function resetForm(){
-        const kd_barang = $('#kd_brg').val('');
-        const nama_barang = $('#nama').val('');
-        const merk = $('#merk').val('');
-        const satuan = $('#satuan').val('');
-        const kategori = $('#kategori').val('');
-        const spesifikasi = $('#spesifikasi').val('');  
+        $('#kd_brg').val('');
+        $('#nama').val('');
+        $('#merk').val('');
+        $('#satuan').val('');
+        $('#kategori').val('');
+        $('#spesifikasi').val('');  
     }
 })
