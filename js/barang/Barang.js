@@ -27,9 +27,8 @@ $(document).ready(function(){
 
     const logout = () => {
 
-        document.cookie = "id=''";
-        sessionStorage.setItem('id', '');
-        sessionStorage.setItem('I', '');
+        sessionStorage.removeItem('id');
+        sessionStorage.removeItem('I');
 
         document.location.href = '../login.html';
     }

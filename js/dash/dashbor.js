@@ -13,10 +13,8 @@ btn_out.addEventListener('click', () => {
 })
 
 const logout = () => {
+    // sessionStorage.removeItem('id');
+    // sessionStorage.removeItem('I');
 
-    document.cookie = "id=''";
-    sessionStorage.setItem('id', '');
-    sessionStorage.setItem('I', '');
-
-    document.location.href = '../login.html';
+    // document.location.href = '../login.html';
 }
