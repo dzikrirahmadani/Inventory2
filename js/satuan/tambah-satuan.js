@@ -28,6 +28,11 @@ $(document).ready(function(){
 
     function prosesTambahData(){
         const nm_satuan = $('#satuan').val();
+
+        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
+
         if( nm_satuan != null ){
             $.ajax({
                 type : "POST",
@@ -36,11 +41,16 @@ $(document).ready(function(){
                 dataType : "JSON",
                 success : function(response) {
                     if( response.status == '1'){
-                        alert(response.msg);
+                        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
                         resetForm();
                         setTimeout( () => {
                             document.location.href = 'satuan.html';
-                        }, 500);
+                            message.style.display = 'none';
+                            message.style.opacity = '0';
+                            pesan.style.top = '-100rem';
+                        }, 2000);
                     }else{
                         alert(response.msg);
                     }

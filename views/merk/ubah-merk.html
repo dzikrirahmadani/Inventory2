@@ -209,6 +209,76 @@
             </div>
         </div>
     </div>
+    <style>
+        #notif{
+            position: absolute;
+            z-index: 99999;
+            bottom: -15rem;
+            top: 0;
+            right: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            display: none;
+        }
+        #notif > .pesan{
+            position: fixed;
+            padding: 5rem;
+            /* top: 10%; */
+            top: -100rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: .5rem;
+            animation: animate2 1s cubic-bezier(0.03, 0.01, 0, 1.83) forwards;
+            background-color: rgba(27, 27, 41, .8);
+        }
+        @keyframes animate2 {
+            0%{
+                opacity: 0;
+                display: none;
+                height: 1rem;
+            }100%{
+                opacity: 1;
+                display: flex;
+            }
+        }
+        #notif > .pesan > .logo{
+            width: 50%;
+            height: 50%;
+        }
+        #notif > .pesan > .message > h1{
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #fff;
+            animation: animate1 .6s alternate forwards;
+            animation-timing-function: cubic-bezier(0.47, 0.08, 0.62, 1.4);
+            opacity: 0;
+        }
+        @keyframes animate1 {
+            0%{
+                font-size: 0;
+                opacity: 0;
+            }100%{
+                font-size: 1.8rem;
+                margin-bottom: .5rem;
+                opacity: 1;
+            }
+        }
+    </style>
+    <!-- Notification -->
+    <div class="notif" id="notif">
+        <div class="pesan">
+            <div class="logo d-flex justify-content-center align-center my-2" style="width: 5rem; background-color: #fff; border-radius: 50%; padding: -1rem;">
+                <img src="../../assets/images/gif/success4.gif" alt="">
+            </div>
+            <div class="message">
+                <h1>Data berhasil Ditambahkan !</h1>
+            </div>
+        </div>
+    </div>
     <!-- END CONTENT -->
 
     <script src="../../assets/js/bootstrap.js"></script>
