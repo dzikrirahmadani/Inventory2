@@ -9,178 +9,54 @@
     <link rel="shortcut icon" href="../assets/images/logo/logoinvent.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/logo/logoinvent.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/login-css/animation.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* ANIMASI BG */
-        .bg-wall {
-            z-index: -99;
-            width: 500px;
-            height: 100vh;
-            background: rgb(108,99,255);
-            background: linear-gradient(155deg, rgba(108,99,255,1) 0%, rgba(108,99,255,1) 41%, rgba(31,29,60,1) 100%); 
-            margin-top: -580px;
-            margin-left: 70%;
-            rotate: 45deg;
-            box-shadow: 20px -31px 25px -1px rgba(0,0,0,0.62);
-            -webkit-box-shadow: 20px -31px 25px -1px rgba(0,0,0,0.62);
-            -moz-box-shadow: 20px -31px 25px -1px rgba(0,0,0,0.62);
-        }
-        .bg-programmer {
-            position: absolute;
-            z-index: 99;
-            width: 400px;
-            height: 400px;
-            margin-left: 55%;
-            margin-top: 100px;
-            animation: up-and-down1;
-            animation-duration: 15s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-        }
-        img.bg-creative {
-            z-index: 99;
-            width: 200px;
-            height: 200px;
-            margin-left: 550px;
-            margin-top: -350px;
-            animation: up-and-down;
-            animation-duration: 8s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-        }
-        img.bg-financial {
-            z-index: 99;
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            margin-left: 1100px;
-            margin-top: -150px;
-            animation: up-and-down2;
-            animation-duration: 10s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-        }
-
-        @keyframes up-and-down {
-            0% {
-                transform: translateY(10px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(10px);
+        /* Respon */
+        @media only screen and (max-width: 1360px) {
+            .eye {
+                margin-left: -50%;
             }
         }
-
-        @keyframes up-and-down1 {
-            0% {
-                transform: translateY(-20px);
-            }
-            50% {
-                transform: translateY(20px);
-            }
-            100% {
-                transform: translateY(-20px);
+        @media only screen and (max-width: 1333px) {
+            .eye {
+                margin-left: -70%;
             }
         }
-
-        @keyframes up-and-down2 {
-            0% {
-                transform: translateY(30px);
-            }
-            50% {
-                transform: translateY(-30px);
-            }
-            100% {
-                transform: translateY(30px);
+        @media only screen and (max-width: 1320px) {
+            .eye {
+                margin-left: -85%;
             }
         }
-        /* END ANIMASI BG */
-
-        /* ANIMASI TITLE */
-        @keyframes myAnimate {
-            0%{
-                margin-top: 0;
-            }
-            50%{
-                margin-top: -.5rem;
-                width: 2rem;
-            }
-            100%{
-                margin-top: 0;
+        @media only screen and (max-width: 1310px) {
+            .eye {
+                margin-left: -100%;
             }
         }
-        /* END ANIMASI TITLE */
-
-        /* ANIMASI DOT */
-        .particle {
-            position: relative;
-        }
-        
-        .particle span {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: rgb(0, 60, 163);
-            border-radius: 50%;
-            animation: animate;
-            animation-duration: 10s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-        }
-        .particle span.part2 {
-            position: absolute;
-            margin-left: 250px;
-            width: 10px;
-            height: 10px;
-            background: rgb(109, 252, 0);
-            border-radius: 50%;
-            animation: animate2;
-            animation-duration: 10s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-        }
-        .particle span.part3 {
-            position: absolute;
-            transform: rotate(90deg);
-            margin-left: 150px;
-            width: 13px;
-            height: 13px;
-            background: rgb(255, 128, 0);
-            border-radius: 50%;
-            animation: animate3;
-            animation-duration: 10s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-        }
-        
-        @keyframes animate {
-            0% {
-                transform: translateY(0px);
-            }
-            100% {
-                transform: translateY(500px);
+        @media only screen and (max-width: 1301px) {
+            .eye {
+                margin-left: -120%;
             }
         }
-        @keyframes animate2 {
-            0% {
-                transform: translateY(500px);
+        @media only screen and (max-width: 991px) {
+            .eye {
+                position: absolute;
+                margin-left: 1150%;
             }
-            100% {
-                transform: translateY(0px);
+            .bg-wall {
+                width: auto;
+                height: auto;
+            }
+            .bg-financial {
+            }
+            .bg-creative {
+                visibility: hidden;
+            }
+            .bg-programmer {
+                visibility: hidden;
             }
         }
-        @keyframes animate3 {
-            0% {
-                transform: translateY(10px);
-            }
-            100% {
-                transform: translateY(250px);
-            }
-        }
-        /* END ANIMASI DOT */
 
     </style>
 
@@ -224,7 +100,7 @@
                             <input type="password" maxlength="26" class="form-control form-control-md" placeholder="Password" style="overflow: hidden;" id="password" autocomplete="off">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
-                                <button style="width: 2px;" id="showPassword">
+                                <button class="eye" style="width: 2px;" id="showPassword">
                                     <i class="bi bi-eye ml-[235px] bg-white px-1"></i>
                                 </button>
                                 <!-- <i class="bi bi-eye-slash"></i> -->
