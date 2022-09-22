@@ -11,6 +11,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+        .bg-programmer {
+            width: 400px;
+            height: 400px;
+            margin-left: 150px;
+            margin-top: 150px;
+        }
+        img.bg-creative {
+            z-index: 99;
+            width: 200px;
+            height: 200px;
+            margin-left: 550px;
+            margin-top: -350px;
+        }
+        img.financial {
+            z-index: 99;
+            width: 200px;
+            height: 200px;
+            margin-left: 1100px;
+            margin-top: -150px;
+        }
+
+    </style>
+
 </head>
 
 <body class="scroll-smooth">
@@ -75,9 +99,12 @@
                         <a class="btn-login text-[16px] hover:bg-blue-900 hover:text-gray-600 shadow-lg py-2 px-[25%] bg-slate-50 shadow-xl rounded-lg hover:shadow-lg bg-blue-500 text-white transition duration-300 ease-in-out font-semibold hover:cursor-pointer" id="btn-login">Log in</a>
                 </div>
             </div>
-            <div class="col-lg-7 d-none d-lg-block" style="background-image: url(../assets/images/bg/flat.SVG); background-size: cover; background-repeat: no-repeat;">
+            <!-- bg image -->
+                <img class="bg-programmer" src="../assets/images/flat/programmer.svg" alt="">
                 <div id="auth-right.">
-
+                <img class="bg-creative" src="../assets/images/flat/creative.svg" alt="">
+                <img class="financial" src="../assets/images/flat/financial.svg" alt="">
+            <!-- end bg image -->
                 </div>
             </div>
         </div>
