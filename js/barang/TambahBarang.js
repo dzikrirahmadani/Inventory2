@@ -14,7 +14,6 @@ btn_out.addEventListener('click', () => {
 
 // Event ketika tombol batal di klik
 const btn_cancel = document.getElementById('btn-cancel');
-console.log(btn_cancel);
 btn_cancel.addEventListener('click', () => {
     document.location.href = 'barang.html';
 })
@@ -39,14 +38,17 @@ $(document).ready(function(){
     })
 
     function tambahData(){
-
-    const kd_barang = $('#kd_brg').val();
-    const nama_barang = $('#nama').val();
-    const merk = $('#merk').val();
-    const satuan = $('#satuan').val();
-    const stok = $('#stok').val();
-    const kategori = $('#kategori').val();
-    const spesifikasi = $('#spesifikasi').val();
+        
+        const kd_barang = $('#kd_brg').val();
+        const nama_barang = $('#nama').val();
+        const merk = $('#merk').val();
+        const satuan = $('#satuan').val();
+        const stok = $('#stok').val();
+        const kategori = $('#kategori').val();
+        const spesifikasi = $('#spesifikasi').val();
+        
+        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
 
         $.ajax({
             type : "POST",
@@ -55,11 +57,17 @@ $(document).ready(function(){
             dataType : "JSON",
             success : function(response){
                 if( response.status == '1' ){
-                    alert(response.msg);
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
                     resetForm();
                     setTimeout(() => {
                         document.location.href = 'barang.html';
-                    }, 1000);
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                    }, 2000);
                 }else{
                     alert(response.msg);
                     resetForm();
