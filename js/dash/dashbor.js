@@ -12,11 +12,20 @@ btn_out.addEventListener('click', () => {
     }
 })
 
+function delete_cookie( name, path, domain ) {
+    if( get_cookie( name ) ) {
+      document.cookie = name + "=" +
+        ((path) ? ";path="+path:"")+
+        ((domain)?";domain="+domain:"") +
+        ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    }
+  }
+  
+
 const logout = () => {
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('I');
 
-    document.cookie = "id=''";
-    sessionStorage.setItem('id', '');
-    sessionStorage.setItem('I', '');
-
-    document.location.href = '../login.html';
+    delete_cookie('id', "/Inventory2/views", "localhost");
+    // document.location.href = '../login.html';
 }
