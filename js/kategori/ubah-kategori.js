@@ -45,6 +45,10 @@ $(document).ready(function(){
     function prosesUbahData() {
         const id_kategori = getUrlVars('data');
         const nm_kategori = $('#kategori').val();
+
+        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
         
         $.ajax({
             type : "POST",
@@ -53,11 +57,18 @@ $(document).ready(function(){
             dataType : "JSON",
             success : function(response){
                 if( response.status == '1' ){
-                    alert(response.msg);
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
+                    text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
                     resetForm();
                     setTimeout(() => {
                         document.location.href = 'kategori.html';
-                    }, 500)
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                    }, 2000)
                 }else{
                     alert(response.msg);
                 }

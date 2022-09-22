@@ -57,7 +57,6 @@ $(document).ready(function(){
     }
 
     function getKategori(id=null){
-        console.log(id)
         $.ajax({
             type : "GET",
             url : "../../php/barang/GetKategoriData.php",
@@ -65,7 +64,6 @@ $(document).ready(function(){
             success : function(response){
                 let kategori = '';
                 for(let i = 0; i < response.length; i++){
-                    console.log(response[i].id_kategori);
                     if(response[i].id_kategori != id){
                         kategori += `<option value="${response[i].id_kategori}" >${response[i].nm_kategori}</option>`;
                     }else{
@@ -134,6 +132,10 @@ $(document).ready(function(){
         const stok = $('#stok').val();
         const spesifikasi = $('#spesifikasi').val();
 
+        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
+
         if( !kd_brg || !nama_barang || !merk || !kategori || !satuan || !stok || !spesifikasi ){
             alert('Tolong Isi Semua field');
         }{
@@ -144,11 +146,18 @@ $(document).ready(function(){
                 dataType : "JSON",
                 success : function(response) {
                     if( response.status == '1' ){
-                        alert(response.msg);
+                        message.style.transition = 'all 5s 5s ease-in-out';
+                        message.style.opacity = '1';
+                        message.style.display = 'flex';
+                        pesan.style.top = '10%';
+                        text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`
                         resetForm();
                         setTimeout(() => {
                             document.location.href = 'barang.html';
-                        }, 1000);
+                            message.style.display = 'none';
+                            message.style.opacity = '0';
+                            pesan.style.top = '-100rem';
+                        }, 2000);
                     }else{
                         alert(response.msg);
                     }
