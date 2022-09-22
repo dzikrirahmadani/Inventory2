@@ -11,6 +11,179 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+        /* ANIMASI BG */
+        .bg-wall {
+            z-index: -99;
+            width: 500px;
+            height: 100vh;
+            background: rgb(108,99,255);
+            background: linear-gradient(155deg, rgba(108,99,255,1) 0%, rgba(108,99,255,1) 41%, rgba(31,29,60,1) 100%); 
+            margin-top: -580px;
+            margin-left: 70%;
+            rotate: 45deg;
+            box-shadow: 20px -31px 25px -1px rgba(0,0,0,0.62);
+            -webkit-box-shadow: 20px -31px 25px -1px rgba(0,0,0,0.62);
+            -moz-box-shadow: 20px -31px 25px -1px rgba(0,0,0,0.62);
+        }
+        .bg-programmer {
+            position: absolute;
+            z-index: 99;
+            width: 400px;
+            height: 400px;
+            margin-left: 55%;
+            margin-top: 100px;
+            animation: up-and-down1;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        img.bg-creative {
+            z-index: 99;
+            width: 200px;
+            height: 200px;
+            margin-left: 550px;
+            margin-top: -350px;
+            animation: up-and-down;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        img.bg-financial {
+            z-index: 99;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            margin-left: 1100px;
+            margin-top: -150px;
+            animation: up-and-down2;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes up-and-down {
+            0% {
+                transform: translateY(10px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(10px);
+            }
+        }
+
+        @keyframes up-and-down1 {
+            0% {
+                transform: translateY(-20px);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes up-and-down2 {
+            0% {
+                transform: translateY(30px);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(30px);
+            }
+        }
+        /* END ANIMASI BG */
+
+        /* ANIMASI TITLE */
+        @keyframes myAnimate {
+            0%{
+                margin-top: 0;
+            }
+            50%{
+                margin-top: -.5rem;
+                width: 2rem;
+            }
+            100%{
+                margin-top: 0;
+            }
+        }
+        /* END ANIMASI TITLE */
+
+        /* ANIMASI DOT */
+        .particle {
+            position: relative;
+        }
+        
+        .particle span {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgb(0, 60, 163);
+            border-radius: 50%;
+            animation: animate;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        .particle span.part2 {
+            position: absolute;
+            margin-left: 250px;
+            width: 10px;
+            height: 10px;
+            background: rgb(109, 252, 0);
+            border-radius: 50%;
+            animation: animate2;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        .particle span.part3 {
+            position: absolute;
+            transform: rotate(90deg);
+            margin-left: 150px;
+            width: 13px;
+            height: 13px;
+            background: rgb(255, 128, 0);
+            border-radius: 50%;
+            animation: animate3;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: translateY(0px);
+            }
+            100% {
+                transform: translateY(500px);
+            }
+        }
+        @keyframes animate2 {
+            0% {
+                transform: translateY(500px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        @keyframes animate3 {
+            0% {
+                transform: translateY(10px);
+            }
+            100% {
+                transform: translateY(250px);
+            }
+        }
+        /* END ANIMASI DOT */
+
+    </style>
+
 </head>
 
 <body class="scroll-smooth">
@@ -21,9 +194,8 @@
                 <div id="auth-left" style="margin-top: -35px;">
                     <div class="auth-logo flex">
                         <a href="login.html"><img src="../assets/images/logo/logoinvent.png" alt="Logo" id="logo" width="30rem"></a>
-                        <h1 class="ml-3 mt-[1px] text-[25px] font-semibold">-</h1>
+                        <h1 class="title-logo ml-3 mt-[1px] text-[25px] font-semibold">-</h1>
                     </div>
-                    <!-- <style>
                         #logo{
                             animation: myAnimate 5s ease infinite;
                             position: absolute; 
@@ -39,6 +211,13 @@
                             100%{
                                 margin-top: 0;
                             }
+=======
+                        .title-logo {
+                            animation: myAnimate 3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+                            position: absolute; 
+                            margin-left: 50px;
+                            z-index: 100;
+>>>>>>> ff12a617251a71964629318b7d4d6daddff97828
                         }
                     </style> -->
                     <div class="content-title">
@@ -71,12 +250,22 @@
                                 Simpan kata sandi
                             </label>
                         </div>
-                        <a class="btn-login text-[16px] hover:bg-blue-900 hover:text-gray-600 shadow-lg py-2 px-[25%] bg-slate-50 shadow-xl rounded-lg hover:shadow-lg bg-blue-500 text-white transition duration-300 ease-in-out font-semibold hover:cursor-pointer" id="btn-login">Log in</a>
+                        <a class="btn-login text-[16px] hover:bg-blue-900 hover:text-gray-600 shadow-lg py-2 px-[25%] bg-slate-50 shadow-xl rounded-lg hover:shadow-lg bg-blue-800 text-white transition duration-300 ease-in-out font-semibold hover:cursor-pointer" id="btn-login">Log in</a>
                 </div>
             </div>
-            <div class="col-lg-7 d-none d-lg-block" style="background-image: url(../assets/images/bg/flat.SVG); background-size: cover; background-repeat: no-repeat;">
+            <!-- bg image -->
+                <img class="bg-programmer" src="../assets/images/flat/programmer.svg" alt="">
                 <div id="auth-right.">
-
+                <img class="bg-creative" src="../assets/images/flat/creative.svg" alt="">
+                <img class="bg-financial" src="../assets/images/flat/financial.svg" alt="">
+                <div class="bg-wall"></div>
+            <!-- end bg image -->
+                <div class="auth-right absolute ml-[200px] mt-[-500px]">
+                    <div class="particle relative">
+                        <span class="part1"></span>
+                        <span class="part2"></span>
+                        <span class="part3"></span>
+                    </div>
                 </div>
             </div>
         </div>
