@@ -49,6 +49,7 @@ $(document).ready(function(){
         
         const message = document.getElementById('notif');
         const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
 
         $.ajax({
             type : "POST",
@@ -61,6 +62,7 @@ $(document).ready(function(){
                     message.style.opacity = '1';
                     message.style.display = 'flex';
                     pesan.style.top = '10%';
+                    text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`
                     resetForm();
                     setTimeout(() => {
                         document.location.href = 'barang.html';
