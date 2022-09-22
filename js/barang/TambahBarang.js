@@ -12,6 +12,13 @@ btn_out.addEventListener('click', () => {
     }
 })
 
+// Event ketika tombol batal di klik
+const btn_cancel = document.getElementById('btn-cancel');
+console.log(btn_cancel);
+btn_cancel.addEventListener('click', () => {
+    document.location.href = 'barang.html';
+})
+
 const logout = () => {
 
     sessionStorage.removeItem('id');

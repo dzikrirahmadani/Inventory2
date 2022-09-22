@@ -15,7 +15,6 @@ if( !getCookie ){
 }else{
     const id = getCookie.id;
     const id_admin = getCookie.I;
-    console.log(id, id_admin)
 
     $.ajax({
         type : "POST",
@@ -37,6 +36,17 @@ $(document).ready(function(){
 
     $('#btn-login').click(() => {
         checkData();
+    });
+
+    document.getElementById('showPassword').addEventListener('click', function() {
+        const input = document.getElementById('password');
+        if( input.getAttribute('type') == 'password' ){
+            input.setAttribute('type', "text");
+            this.innerHTML = `<i class="bi ml-[235px] bi-eye-slash" title="Hide Password"></i>`;
+        }else{
+            input.setAttribute('type', 'password');
+            this.innerHTML = `<i class="bi bi-eye ml-[235px] bg-white px-1" title="Show Password"></i>`
+        }
     })
 
     const checkData = () => {
