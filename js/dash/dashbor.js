@@ -21,11 +21,18 @@ function delete_cookie( name, path, domain ) {
     }
   }
   
-
 const logout = () => {
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('I');
 
     delete_cookie('id', "/Inventory2/views", "localhost");
-    // document.location.href = '../login.html';
+}
+
+const landingOn = () => {
+    const landing = document.getElementById('landing');
+    landing.style.opacity = '0';
+    landing.style.transition = 'all 1s .6s ease-in-out';
+    setTimeout(() => {
+        landing.style.display = 'none';
+    }, 1200)
 }
