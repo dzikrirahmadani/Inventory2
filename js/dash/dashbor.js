@@ -30,9 +30,25 @@ const logout = () => {
 
 const landingOn = () => {
     const landing = document.getElementById('landing');
+    const loading = document.createElement('div');
+
+    loading.textContent = "Loading";
+    loading.style.fontSize = "1.5em";
+    loading.style.color = "#fff";
+    landing.appendChild(loading);
+
+    let loaded = setInterval(() => {
+        loading.textContent = loading.textContent + '.';
+    }, 200)
+
     landing.style.opacity = '0';
-    landing.style.transition = 'all 1s .6s ease-in-out';
+    landing.style.transition = 'all 1s ease-in-out';
+
+    setTimeout(() => {
+        clearInterval(loaded);
+        loading.style.display = 'none';
+    }, 1000);
     setTimeout(() => {
         landing.style.display = 'none';
-    }, 1200)
+    }, 2000)
 }
