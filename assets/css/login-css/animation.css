@@ -18,7 +18,7 @@
     z-index: 99;
     width: 400px;
     height: 400px;
-    margin-left: 55%;
+    margin-left: 50%;
     margin-top: 100px;
     animation: up-and-down1;
     animation-duration: 15s;
@@ -43,9 +43,9 @@ img.bg-financial {
     width: 200px;
     height: 200px;
     margin-left: 80%;
-    margin-top: -250px;
+    margin-top: -350px;
     animation: up-and-down2;
-    animation-duration: 10s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
@@ -76,13 +76,13 @@ img.bg-financial {
 
 @keyframes up-and-down2 {
     0% {
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     50% {
-        transform: translateY(-30px);
+        transform: translateY(-20px);
     }
     100% {
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
 }
 /* END ANIMASI BG */
@@ -114,7 +114,7 @@ img.bg-financial {
     background: rgb(0, 60, 163);
     border-radius: 50%;
     animation: animate;
-    animation-duration: 10s;
+    animation-duration: 120s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
@@ -126,20 +126,20 @@ img.bg-financial {
     background: rgb(109, 252, 0);
     border-radius: 50%;
     animation: animate2;
-    animation-duration: 10s;
+    animation-duration: 120s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 .particle span.part3 {
     position: absolute;
     transform: rotate(90deg);
-    margin-left: 150px;
+    margin-left: 100px;
     width: 13px;
     height: 13px;
     background: rgb(255, 128, 0);
     border-radius: 50%;
     animation: animate3;
-    animation-duration: 10s;
+    animation-duration: 60s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
@@ -162,10 +162,10 @@ img.bg-financial {
 }
 @keyframes animate3 {
     0% {
-        transform: translateY(10px);
+        transform: translateY(450px);
     }
     100% {
-        transform: translateY(250px);
+        transform: translateY(-20px);
     }
 }
 /* END ANIMASI DOT */
