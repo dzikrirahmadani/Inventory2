@@ -14,6 +14,7 @@ if ( $_POST ){
     }else{
         $result['status'] = '0';
         $result['status'] = mysqli_error($conn);
+        $result['msg'] = "Data Gagal Diubah !";
     }
 
     echo json_encode($result);

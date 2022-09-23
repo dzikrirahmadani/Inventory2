@@ -13,7 +13,7 @@ if( $_POST ){
         $result['msg'] = "Data Berhasil Diubah !";
     }else{
         $result['status'] = '0';
-        $result['status'] = "Data Gagal Diubah !";
+        $result['msg'] = "Data Gagal Diubah !";
     }
 
     echo json_encode($result);
