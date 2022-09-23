@@ -15,7 +15,7 @@ if( $_POST ){
         $result['msg'] = "Data Berhasil Ditambahkan !";
     }else{
         $result['status'] = '0';
-        $result['ms'] = 'Data Gagal Ditambahkan !';
+        $result['msg'] = 'Data Gagal Ditambahkan !';
     }
 
     echo json_encode($result);
