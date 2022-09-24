@@ -11,6 +11,7 @@ btn_out.addEventListener('click', () => {
         logout();
     }
 })
+
 const logout = () => {
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('I');
@@ -46,6 +47,8 @@ const landingOn = () => {
     heading.style.marginTop = '0';
     heading.style.opacity = '1';
     // End of event heading
+
+    data();
 }
 
 const cards = document.querySelectorAll('.cards');
@@ -62,3 +65,62 @@ cards.forEach(el => {
         this.style.boxShadow = "none";
     })
 })
+
+const data = async () => {
+    const textBarang = document.getElementById('numberTotaBarang');
+    const textKatagori = document.getElementById('numberKategori');
+    const textSatuan = document.getElementById('numberSatuan');
+    const textMerk = document.getElementById('numberMerk');
+
+    // Get Total Barang
+    const url = "../../php/barang/GetTotalBarang.php";
+    await fetch(url, {method : "GET"})
+    .then(response => {
+        if( !response.ok ){
+            alert('Server Barang Bermasalah !');
+        }
+        return response.json();
+    })
+    .then(response => {
+        textBarang.textContent = response; 
+    });
+
+    // Get Total Kategori
+    const url2 = "../../php/kategori/GetTotalKategori.php";
+    await fetch(url2, {method : "GET"})
+    .then(response => {
+        if( !response.ok ){
+            alert('Sever Kategori Bermasalah !');
+        }
+        return response.json()
+    })
+    .then(response => {
+        textKatagori.textContent = response;
+    })
+
+    // Get Total Satuan
+    const url3 = "../../php/satuan/GetTotalSatuan.php";
+    await fetch(url3, {method : "GET"})
+    .then(response => {
+        if( !response.ok ){
+            alert('Sever Satuan Barang Bermasalah !');
+        }
+        return response.json();
+    })
+    .then(response => {
+        textSatuan.textContent = response;
+    })
+
+    // Get total merk
+    const url4 = "../../php/merk/GetTotalMerk.php";
+    await fetch(url4, {method : "GET"})
+    .then(response => {
+        if( !response.ok ){
+            alert('Sever Merk Bermasalah !');
+        }
+        return response.json();
+    })
+    .then(response => {
+        textMerk.textContent = response;
+    })
+}
