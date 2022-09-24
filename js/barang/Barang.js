@@ -7,7 +7,20 @@ $(document).ready(function(){
     }
 
     function hapusData(id){
+        const popup = document.querySelector('.modal-popup-del');
+        popup.style.display = 'none';
         let id_brg = id;
+
+        // DOM Success Notification
+        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
+
+        // DOM ERROR Notification
+        const logo = document.querySelector('.pesan > .logo');
+        const textErr = document.querySelector('.pesan > .message');
+        const btn_close = document.querySelector('.pesan > .close');
+
         $.ajax({    
             type : "POST",
             url : "../../php/barang/hapusData.php",
@@ -15,10 +28,35 @@ $(document).ready(function(){
             dataType : "JSON",
             success : function(response) {
                 if( response.status == '1' ){
-                    alert(response.msg);
-                    readData();
+                    btn_close.style.display = 'none';   
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
+                    text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+                    setTimeout(() => {
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                        document.body.style.position = 'relative';
+                        readData();
+                    }, 2000);
                 }else{
-                    alert(response.msg);
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
+                    logo.innerHTML = `<img src="../../assets/images/gif/error.gif" alt="">`;
+                    logo.style.padding = '1rem';
+                    logo.style.boxSizing = 'border-box';
+                    textErr.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+    
+                    btn_close.addEventListener('click', () => {
+                        message.style.transition = 'all 5s ease';
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                    })
                     readData();
                 }
             }
@@ -52,18 +90,22 @@ $(document).ready(function(){
     
             // Event ketika tombol delelte di klik 
             const btn_del = document.querySelectorAll('#btn-hapus');
-            const popup = document.querySelector('.modal-popup');
+            const popup = document.querySelector('.modal-popup-del');
             const textPopup = popup.querySelector('#textConfirm');
-            const success = popup.querySelector('#success');
 
             btn_del.forEach(el => {
                 el.addEventListener('click', () => {
                     popup.style.display = 'flex';
                     textPopup.textContent = "Apakah Yakin Ingin Menghapus ?";
-                    // if( confirm('Apakah Yakin Ingin Menghapus ?') ){
-                    //     let id = el.dataset.id;
-                    //     hapusData(id);
-                    // }
+
+                    let id = el.dataset.id;
+                    document.body.addEventListener('click', (e) => {
+                        if(e.target.id == 'success'){
+                            hapusData(id);
+                        }else if(e.target.id == 'confirmErr'){
+                            popup.style.display = 'none';
+                        }
+                    })
                 })
             })
         });
