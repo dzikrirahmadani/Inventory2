@@ -107,7 +107,11 @@
     }
 
     body.theme-dark input.input-bawah {
-        width: 106%;
+        width: 110%;
+    }
+
+    body.theme-dark .dark-select {
+        background: #1b1b29;
     }
 
 </style>
@@ -248,23 +252,29 @@
                         <div class="row">
                             <div class="col-11">
                                 <div class="form-group">
-                                    <label for="nama">Nama Barang :</label>
-                                    <input type="text" class="form-control" id="nama" placeholder="-" autocomplete="off">
+                                    <label for="nm_brg">Nama Barang :</label>
+                                        <select type="text" name="" id="nm_brg" placeholder="Nama Kategori" class="dark-select bg-slate-50 w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize; border: 1px solid #E2E8F0;" required>
+                                            <option value="">-- Nama Barang --</option>
+                                        </select>
                                 </div>
                             </div>
                         <div class="row">
                             <div class="col-11">
                                 <div class="form-group">
                                     <label for="jmlh_pinjam">Jumlah Pinjam :</label>
-                                    <input type="number" class="form-control input-bawah w-[107%]" id="jmlh_pinjam" placeholder="" autocomplete="off">
+                                    <input type="number" class="form-control input-bawah w-[110%]" id="jmlh_pinjam" placeholder="" autocomplete="off">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-11">
                                 <div class="form-group">
-                                    <label for="nm_ruangan">Nama Ruangan :</label>
-                                    <input type="text" class="form-control input-bawah w-[107%]" id="nm_ruangan" placeholder="" autocomplete="off">
+                                    <div class="form-group">
+                                        <label for="nm_ruangan">Nama Ruangan :</label>
+                                        <select type="text" name="" id="nm_ruangan" placeholder="Nama Kategori" class="dark-select bg-slate-50 w-[110%] h-10 rounded-[5px]" style="text-transform: capitalize; border: 1px solid #E2E8F0;" required>
+                                            <option value="">-- Nama Ruangan --</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +282,7 @@
                             <div class="col-11">
                                 <div class="form-group">
                                     <label for="nm_peminjam">Nama Peminjam :</label>
-                                    <input type="text" class="form-control input-bawah w-[107%]" id="nm_peminjam" placeholder="" autocomplete="off">
+                                    <input type="text" class="form-control input-bawah w-[110%]" id="nm_peminjam" placeholder="-" autocomplete="off">
                                 </div>
                             </div>
                         </div>
@@ -280,7 +290,7 @@
                             <div class="col-11">
                                 <div class="form-group">
                                     <label for="tgl_pinjam">Tanggal Pinjam :</label>
-                                    <input type="date" class="form-control input-bawah w-[107%]" id="tgl_pinjam" placeholder="0" autocomplete="off">
+                                    <input type="date" class="form-control input-bawah w-[110%]" id="tgl_pinjam" placeholder="0" autocomplete="off">
                                 </div>
                             </div>
                         </div>
@@ -288,7 +298,7 @@
                             <div class="col-11">
                                 <div class="form-group">
                                     <label for="status">Status Pinjam :</label>
-                                    <input type="text" class="form-control input-bawah w-[107%]" id="status" placeholder="" autocomplete="off"></input>
+                                    <input type="text" class="form-control input-bawah w-[110%]" id="status" placeholder="" autocomplete="off"></input>
                                 </div>
                             </div>
                         </div>

@@ -106,9 +106,17 @@
         width: 155px;
     }
 
-    body.theme-dark input.input-bawah {
-        width: 106%;
+    body.theme-dark .input-bawah {
+        width: 107%;
         padding-left: 33px;
+    }
+
+    body.theme-dark .vendor {
+        background: #1b1b29;
+    }
+
+    body.theme-dark .nama-brg {
+        background: #1b1b29;
     }
 
 </style>
@@ -249,8 +257,10 @@
                         <div class="row">
                             <div class="col-11">
                                 <div class="form-group">
-                                    <label for="nama">Nama Barang :</label>
-                                    <input type="text" class="form-control" id="nama" placeholder="-" autocomplete="off">
+                                    <label for="nm_brg">Nama Barang :</label>
+                                    <select type="text" name="" id="nm_brg" placeholder="Nama Kategori" class="nama-brg bg-slate-50 w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize; border: 1px solid #E2E8F0;" required>
+                                        <option value="">-- Nama Barang --</option>
+                                    </select>
                                 </div>
                             </div>
                         <div class="row">
@@ -265,8 +275,10 @@
                         <div class="row">
                             <div class="col-11">
                                 <div class="form-group">
-                                    <label for="nm_vendor">Nama Vendor :</label>
-                                    <input type="text" class="form-control input-bawah w-[107%]" id="nm_vendor" placeholder="" autocomplete="off">
+                                    <label for="vendor">Vendor :</label>
+                                    <select type="text" name="" id="vendor" placeholder="Nama Kategori" class="vendor bg-slate-50 w-[107%] h-10 rounded-[5px]" style="text-transform: capitalize; border: 1px solid #E2E8F0;" required>
+                                        <option value="">-- Vendor --</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
