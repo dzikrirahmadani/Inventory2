@@ -67,7 +67,7 @@ $(document).ready(function(){
             return response.json();
         })
         .then(response => {
-            document.getElementById('kode').value = response;
+            document.getElementById('kd_pengajuan').value = response;
         })
     }
 
@@ -83,13 +83,13 @@ $(document).ready(function(){
         .then(response => {
             
             response.map(v => {
-                $('#vendor').append(showOption(v));
+                $('#vendor').append(showOptionVendor(v));
             });
         });
     }
 
-    const showOption = (v) => {
-        return `<option value="${v.id_vendor}">${v.nm_vendor}</option>`
+    const showOptionVendor = (v) => {
+        return `<option value="${v.id_vendor}" class="capitalize">${v.nm_vendor}</option>`
     }
 
     const resetForm = () => {
@@ -98,6 +98,8 @@ $(document).ready(function(){
         $('#vendor').val();
         $('#status').val();
     }
+
     getKode();
     getvendor();
+    getBarang();
 })
