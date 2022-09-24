@@ -59,7 +59,7 @@
 
 </head>
 
-<body>
+<body onload="landingOn()">
     <div id="app">
     <!-- SIDEBAR -->
         <div id="sidebar" class="active">
@@ -264,6 +264,14 @@
                 </div>
             </section>
         </div>
+    </div>
+    <!-- Landing page -->
+    <style>
+        #landing{
+            z-index: 999999999999;
+        }
+    </style>
+    <div class="loading flex justify-content-center align-center w-[100%] h-[100%] absolute z-999999999999 inset-0 bg-[#1b1b29] py-10" id="landing">
     </div>
     <!-- END CONTENT -->
 
