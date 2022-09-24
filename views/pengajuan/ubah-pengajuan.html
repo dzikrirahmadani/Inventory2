@@ -79,9 +79,16 @@
         border-radius: 5px;
     }
 
-    body.theme-dark input.input-bawah {
-        width: 116%;
+    .harga {
         padding-left: 33px;
+    }
+
+    body.theme-dark .harga {
+        padding-left: 33px;
+    }
+
+    body.theme-dark .input-bawah {
+        width: 116%;
     }
 
 </style>
@@ -222,15 +229,19 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="nama">Nama Barang :</label>
-                                    <input type="text" class="form-control" id="nama" placeholder="-" autocomplete="off">
+                                    <div class="form-group">
+                                        <label for="nm_brg">Nama Barang :</label>
+                                        <select type="text" name="" id="nm_brg" placeholder="Nama Kategori" class="bg-slate-50 w-[100%] h-10 rounded-[5px]" style="text-transform: capitalize; border: 1px solid #E2E8F0;" required>
+                                            <option value="">-- Nama Barang --</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-11">
                                     <div class="form-group">
-                                        <label for="jmlh_pinjam">Harga Beli :</label>
-                                        <input type="number" class="pl-[30px] form-control input-bawah w-[116%]" id="jmlh_pinjam" placeholder="" autocomplete="off">
+                                        <label for="harga_brg">Harga Beli :</label>
+                                        <input type="number" class="pl-[30px] form-control input-bawah harga w-[116%]" id="harga_brg" placeholder="" autocomplete="off">
                                         <span class="absolute mt-[-32px] ml-2">Rp</span>
                                     </div>
                                 </div>
@@ -238,8 +249,10 @@
                             <div class="row">
                                 <div class="col-11">
                                     <div class="form-group">
-                                        <label for="nm_vendor">Nama Vendor :</label>
-                                        <input type="text" class="form-control input-bawah w-[116%]" id="nm_vendor" placeholder="" autocomplete="off">
+                                        <label for="vendor">Vendor :</label>
+                                        <select type="text" name="" id="vendor" placeholder="Nama Kategori" class="bg-slate-50 w-[116%] h-10 rounded-[5px]" style="text-transform: capitalize; border: 1px solid #E2E8F0;" required>
+                                            <option value="">-- Vendor --</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
