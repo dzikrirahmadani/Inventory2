@@ -24,15 +24,7 @@ $(document).ready(function(){
             }
         })
     }
-
-    const logout = () => {
-
-        sessionStorage.removeItem('id');
-        sessionStorage.removeItem('I');
-
-        document.location.href = '../login.html';
-    }
-
+    
     const readData = async () => {
         let url = "../../php/barang/DataBarang.php";
         await fetch(url, {
@@ -60,21 +52,19 @@ $(document).ready(function(){
     
             // Event ketika tombol delelte di klik 
             const btn_del = document.querySelectorAll('#btn-hapus');
+            const popup = document.querySelector('.modal-popup');
+            const textPopup = popup.querySelector('#textConfirm');
+            const success = popup.querySelector('#success');
+
             btn_del.forEach(el => {
                 el.addEventListener('click', () => {
-                    if( confirm('Apakah Yakin Ingin Menghapus ?') ){
-                        let id = el.dataset.id;
-                        hapusData(id);
-                    }
+                    popup.style.display = 'flex';
+                    textPopup.textContent = "Apakah Yakin Ingin Menghapus ?";
+                    // if( confirm('Apakah Yakin Ingin Menghapus ?') ){
+                    //     let id = el.dataset.id;
+                    //     hapusData(id);
+                    // }
                 })
-            })
-
-            // Event ketika tombol logout di klik
-            const btn_out = document.querySelector('#btn-out');
-            btn_out.addEventListener('click', () => {
-                if( confirm('Apakah Yakin Ingin Keluar ?') ){
-                    logout();
-                }
             })
         });
     }
@@ -104,4 +94,21 @@ $(document).ready(function(){
                 
     }
     readData();
+})
+
+const popup = document.querySelector('.modal-popup');
+// event popup box
+document.body.addEventListener('click', (e) => {
+    if( e.target.id == 'logout' ){
+      popup.style.display = 'flex';
+    }else if(e.target.id == 'confirmErr'){
+      popup.style.display = 'none';
+    }
+})
+const confirmScs = document.querySelector('.confirm > .confirmScs');
+confirmScs.addEventListener('click', () => {
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('I');
+
+    document.location.href = '../login.html';
 })

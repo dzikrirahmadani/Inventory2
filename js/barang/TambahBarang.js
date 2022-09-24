@@ -3,29 +3,6 @@ const session = sessionStorage.getItem('id');
 if( !session ){
     document.location.href = '../login.html';
 }
-
-// Event ketika tombol logout di klik
-const btn_out = document.querySelector('#btn-out');
-btn_out.addEventListener('click', () => {
-    if( confirm('Apakah Yakin Ingin Keluar ?') ){
-        logout();
-    }
-})
-
-// Event ketika tombol batal di klik
-const btn_cancel = document.getElementById('btn-cancel');
-btn_cancel.addEventListener('click', () => {
-    document.location.href = 'barang.html';
-})
-
-const logout = () => {
-
-    sessionStorage.removeItem('id');
-    sessionStorage.removeItem('I');
-
-    document.location.href = '../login.html';
-}
-
 $(document).ready(function(){
     
     getKategori();
@@ -185,4 +162,21 @@ $(document).ready(function(){
         $('#kategori').val('');
         $('#spesifikasi').val('');  
     }
+})
+
+const popup = document.querySelector('.modal-popup');
+// event popup box
+document.body.addEventListener('click', (e) => {
+    if( e.target.id == 'logout' ){
+      popup.style.display = 'flex';
+    }else if(e.target.id == 'confirmErr'){
+      popup.style.display = 'none';
+    }
+})
+const confirmScs = document.querySelector('.confirm > .confirmScs');
+confirmScs.addEventListener('click', () => {
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('I');
+
+    document.location.href = '../login.html';
 })
