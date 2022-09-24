@@ -38,7 +38,9 @@ $(document).ready(function(){
         const textErr = document.querySelector('.pesan > .message');
         const btn_close = document.querySelector('.pesan > .close');
 
-        if( nm_satuan != null ){
+        if( !nm_satuan ){
+            alert('yang anda masukan kosong !');
+        }else{
             $.ajax({
                 type : "POST",
                 url : "../../php/satuan/TambahSatuan.php",
