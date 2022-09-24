@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Peminjaman</title>
+    <title>Ubah Pengajuan</title>
     
     <link rel="stylesheet" href="../../assets/css/main/app.css">
     <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
@@ -69,6 +69,21 @@
         background-color: #1b1b29;
         color: white;
     }
+    body.theme-dark button.btn-ubah {
+        margin-top: 7px;
+        border-radius: 5px;
+    }
+
+    button.btn-ubah {
+        margin-top: -5px;
+        border-radius: 5px;
+    }
+
+    body.theme-dark input.input-bawah {
+        width: 116%;
+        padding-left: 33px;
+    }
+
 </style>
 
 </head>
@@ -189,53 +204,65 @@
             </a>
         </header>
         <div class="page-heading flex">
-            <h3 class="">Tambah Peminjaman</h3>
+            <h3 class="">Ubah Pengajuan</h3>
         </div>
-        <div class="card col-md-7">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="nm_peminjaman">Id :</label>
-                                <input type="text" class="form-control" id="nm_peminjaman" placeholder="-">
+        <div class="row">
+            <div class="card col-md-6">
+                <div class="card-body flex">
+                    <div class="container-form">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="kd_pengajuan">Kode Pengajuan</label>
+                                    <input type="text" class="form-control" id="kd_pengajuan"
+                                        disabled>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="nm_pengajuan">Nama Admin :</label>
-                                <input type="text" class="form-control" id="nm_pengajuan" placeholder="-">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="nama">Nama Barang :</label>
+                                    <input type="text" class="form-control" id="nama" placeholder="-" autocomplete="off">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="alamat">Tanggal Pengajuan :</label>
-                                <input type="date" class="form-control" id="alamat" placeholder="-">
+                            <div class="row">
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="jmlh_pinjam">Harga Beli :</label>
+                                        <input type="number" class="pl-[30px] form-control input-bawah w-[116%]" id="jmlh_pinjam" placeholder="" autocomplete="off">
+                                        <span class="absolute mt-[-32px] ml-2">Rp</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="alamat">Nama Vendor :</label>
-                                <input type="text" class="form-control" id="alamat" placeholder="-">
+                            <div class="row">
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="nm_vendor">Nama Vendor :</label>
+                                        <input type="text" class="form-control input-bawah w-[116%]" id="nm_vendor" placeholder="" autocomplete="off">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="alamat">Status :</label>
-                                <input type="text" class="form-control" id="alamat" placeholder="-">
+                            <div class="row">
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="tgl_pengajuan">Tanggal Pengajuan :</label>
+                                        <input type="date" class="form-control input-bawah w-[116%]" id="tgl_pengajuan" placeholder="0" autocomplete="off">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                    </div>
-                    <div class="row btn-tambah">
-                        <div class="col-2">
-                            <button class="flex py-1 px-4 bg-slate-200 ml-2 font-semibold text-slate-900 rounded-md hover:bg-opacity-50 transition ease-in-out duration-300"><span class="">Batal</span></button>
-                        </div>
-                        <div class="col-2">
-                            <button class="flex py-1 px-4 ml-2 bg-blue-800 font-semibold text-white rounded-md hover:bg-opacity-80 transition ease-in-out duration-300" id="submit"><span class="">Tambah</span></button>
+                            <div class="row">
+                                <div class="col-11">
+                                    <div class="form-group">
+                                        <label for="status">Status Pengajuan :</label>
+                                        <input type="text" class="form-control input-bawah w-[116%]" id="status" placeholder="" autocomplete="off"></input>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="row btn-ubah">
+                            <div class="">
+                                <button class="btn-ubah mt-3 py-1 px-4 bg-blue-800 font-semibold text-white rounded-md hover:bg-opacity-80 transition ease-in-out duration-300" id="submit"><span class="">Ubah</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -253,7 +280,7 @@
 
 <!-- My Script -->
 <script type="text/javascript" src="../../js/jquery.js"></script>
-<script type="text/javascript" src="../../js/peminjaman/tambah-peminjaman.js"></script>
+<script type="text/javascript" src="../../js/pengajuan/ubah-pengajuan.js"></script>
 </body>
 
 </html>
