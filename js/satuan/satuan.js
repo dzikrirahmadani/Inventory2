@@ -89,6 +89,7 @@ $(document).ready(function(){
             data : `id_satuan=${id_satuan}`,
             dataType : "JSON",
             success : function(response) {
+                console.log(response);
                 if( response.status == '1' ){
                     alert(response.msg);
                     ReadData();

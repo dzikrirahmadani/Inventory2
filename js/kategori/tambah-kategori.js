@@ -9,8 +9,7 @@ $(document).ready(function(){
     $('#submit').click(function(){
         prosesTambahData();
     })
-
-
+    
     function prosesTambahData(){
 
         const nm_kategori = $('#kategori').val();
