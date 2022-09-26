@@ -88,3 +88,20 @@ $(document).ready(function(){
         $('#kategori').val('');
     }
 })
+
+const popup = document.querySelector('.modal-popup');
+// event popup box
+document.body.addEventListener('click', (e) => {
+    if( e.target.id == 'logout' ){
+      popup.style.display = 'flex';
+    }else if(e.target.id == 'confirmErr'){
+      popup.style.display = 'none';
+    }
+})
+const confirmScs = document.querySelector('.confirm > .confirmScs');
+confirmScs.addEventListener('click', () => {
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('I');
+
+    document.location.href = '../login.html';
+})

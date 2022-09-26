@@ -13,7 +13,8 @@ if( $_POST ){
         $result['msg'] = "Data Berhasil Dihapus !";
     }else{
         $result['status'] = '0';
-        $result['msg'] = mysqli_error($conn);
+        $result['error'] = mysqli_error($conn);
+        $result['msg'] = "Data Gagal Dihapus !";
     }
 
     echo json_encode($result);

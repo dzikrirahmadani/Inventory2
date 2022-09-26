@@ -31,12 +31,16 @@ if( !getCookie ){
         }
     })
 }
-
 $(document).ready(function(){
 
     $('#btn-login').click(() => {
         checkData();
     });
+    document.addEventListener('keydown', (e) => {
+        if( e.key == 'Enter' ){
+            checkData();
+        }
+    })
 
     document.getElementById('showPassword').addEventListener('click', function() {
         const input = document.getElementById('password');
@@ -82,7 +86,7 @@ $(document).ready(function(){
                     }    
                     document.location.href = 'dash/dashbor.html';
                 }else{
-                    document.getElementById('message').innerHTML = `<i>${response.msg}</i>`;
+                    document.getElementById('message').innerHTML = `<i class="text-sm -mt-1">${response.msg}</i>`;
                 }
             }
         })
