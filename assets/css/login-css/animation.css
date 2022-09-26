@@ -114,7 +114,7 @@ img.bg-financial {
     background: rgb(0, 60, 163);
     border-radius: 50%;
     animation: animate;
-    animation-duration: 15s;
+    animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
@@ -126,7 +126,7 @@ img.bg-financial {
     background: rgb(109, 252, 0);
     border-radius: 50%;
     animation: animate2;
-    animation-duration: 15s;
+    animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
@@ -139,7 +139,7 @@ img.bg-financial {
     background: rgb(255, 128, 0);
     border-radius: 50%;
     animation: animate3;
-    animation-duration: 7s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
