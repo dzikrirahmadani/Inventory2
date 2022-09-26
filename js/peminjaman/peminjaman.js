@@ -6,7 +6,7 @@ if( !session ){
 
 $(document).ready(function(){
 
-    const getNmBrg = async () => {
+    const getBarang = async () => {
         const url = "../../php/peminjaman/GetBarang.php";
         await fetch(url, {method : "GET"})
         .then(response => {
@@ -33,4 +33,5 @@ $(document).ready(function(){
     }
 
     getKdPinjam();
+    getBarang
 })
