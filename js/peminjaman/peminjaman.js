@@ -4,18 +4,33 @@ if( !session ){
     document.location.href = '../login.html';
 }
 
-// Event ketika tombol logout di klik
-const btn_out = document.querySelector('#btn-out');
-btn_out.addEventListener('click', () => {
-    if( confirm('Apakah Yakin Ingin Keluar ?') ){
-        logout();
+$(document).ready(function(){
+
+    const getNmBrg = async () => {
+        const url = "../../php/peminjaman/GetBarang.php";
+        await fetch(url, {method : "GET"})
+        .then(response => {
+            if( !response.ok ){
+                alert('Server bermasalah !');
+            }
+            return response.json()
+        })
+        .then(response => console.log(response));
     }
+
+    const getKdPinjam = async() => {
+        const url = "../../php/peminjaman/GetKdPinjam.php";
+        await fetch(url, {method : "GET"})
+        .then(response => {
+            if( !response.ok ){
+                alert('Server Bermasalah !');
+            }
+            return response.json()
+        })
+        .then(response => {
+            $('#kd_pinjam').val(response);
+        })
+    }
+
+    getKdPinjam();
 })
-
-const logout = () => {
-
-    sessionStorage.removeItem('id');
-    sessionStorage.removeItem('I');
-
-    document.location.href = '../login.html';
-}
