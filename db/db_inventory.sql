@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2022 at 08:54 AM
+-- Generation Time: Sep 26, 2022 at 10:19 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -78,6 +78,13 @@ CREATE TABLE `tbl_detail_peminjaman` (
   `id_brg` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tbl_detail_peminjaman`
+--
+
+INSERT INTO `tbl_detail_peminjaman` (`id_detail_peminjaman`, `id_peminjaman`, `id_brg`) VALUES
+(8, 8, 102);
+
 -- --------------------------------------------------------
 
 --
@@ -116,7 +123,8 @@ CREATE TABLE `tbl_kategori` (
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `nm_kategori`) VALUES
-(8, 'Galon');
+(8, 'Galon'),
+(10, 'adfasd');
 
 -- --------------------------------------------------------
 
@@ -155,6 +163,13 @@ CREATE TABLE `tbl_peminjaman` (
   `id_ruangan` int(11) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_peminjaman`
+--
+
+INSERT INTO `tbl_peminjaman` (`id_peminjaman`, `id_admin`, `kode`, `tanggal`, `id_ruangan`, `status`) VALUES
+(8, 1, 'KDP0002', '2022-09-20', 17, 3);
 
 -- --------------------------------------------------------
 
@@ -217,8 +232,6 @@ CREATE TABLE `tbl_satuan` (
 --
 
 INSERT INTO `tbl_satuan` (`id_satuan`, `satuan`) VALUES
-(1, 'pcs'),
-(2, 'dus'),
 (3, 'kilogram'),
 (6, 'Packing');
 
@@ -345,7 +358,7 @@ ALTER TABLE `tbl_barang`
 -- AUTO_INCREMENT for table `tbl_detail_peminjaman`
 --
 ALTER TABLE `tbl_detail_peminjaman`
-  MODIFY `id_detail_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail_pengajuan`
@@ -357,7 +370,7 @@ ALTER TABLE `tbl_detail_pengajuan`
 -- AUTO_INCREMENT for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_merk`
@@ -369,7 +382,7 @@ ALTER TABLE `tbl_merk`
 -- AUTO_INCREMENT for table `tbl_peminjaman`
 --
 ALTER TABLE `tbl_peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_pengajuan`
