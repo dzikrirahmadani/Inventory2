@@ -1,3 +1,5 @@
 batal tambah & batal ubah kategori
 data barang 
 batal tambah & batal ubah satuan
+
+## POPUP DAN ANIMASI SUCCESS HAPUS baru sampai halaman kategori 
