@@ -6,7 +6,10 @@ if( !session ){
 
 $(document).ready(function(){
 
-    const readData = async() => {
+    const ReadData = async() => {
+
+        $('#target-data').html('');
+
         const url = "../../php/peminjaman/GetData.php";
         await fetch(url, {method : "GET"})
         .then(response => {
@@ -34,12 +37,21 @@ $(document).ready(function(){
 
             // EVENT KETIKA TOMBOL DELETE DI KLIK
             const btn_del = document.querySelectorAll('#btn-hapus');
+            const popup = document.querySelector('.modal-popup-del');
+            const textPopup = popup.querySelector('#textConfirm');
+
             btn_del.forEach(el => {
                 el.addEventListener('click', function(){
-                    let id = this.dataset.id;
-                    if( confirm('Apakah Anda Yakin Ingin Menghapus ?') ){
-                        hapusData(id);
-                    }
+                    popup.style.display = 'flex';
+                    textPopup.textContent = "Apakah Yakin Ingin Menghapus ?";
+                    let id = el.dataset.id;
+                    document.body.addEventListener('click', (e) => {
+                        if(e.target.id == 'success'){
+                                hapusData(id);
+                        }else if(e.target.id == 'confirmErr'){
+                                popup.style.display = 'none';
+                        }
+                    })
                 })
             })
 
@@ -48,18 +60,68 @@ $(document).ready(function(){
     }
 
     const hapusData = (id) => {
+
+        const notif_header = document.getElementById('notif-header');
+        const btn_tutup = document.getElementById('tutup');
+        const popup = document.querySelector('.modal-popup-del');
+        popup.style.display = 'none';
+
+        // DOM Success Notification
+        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
+
+        // DOM ERROR Notification
+        const logo = document.querySelector('.pesan > .logo');
+        const textErr = document.querySelector('.pesan > .message');
+        const btn_close = document.querySelector('.pesan > .close');
+
         $.ajax({
             type : "POST",
             url : "../../php/peminjaman/HapusData.php",
             data : `id_peminjaman=${id}`,
             dataType : "JSON",
             success : (response) => {
-                if( response.status == '1' ){
-                    alert(response.msg);
-                    readData();
+                if ( response.errno == '1451' ){
+                    message.style.display = 'none';
+                    message.style.opacity = '0';
+                    pesan.style.top = '-100rem';
+                    notif_header.style.display = 'flex';
+                    notif_header.style.transition = 'all .5s .5s ease-in-out';
+                    notif_header.style.opacity = '1';
+
+                    btn_tutup.addEventListener('click', () => {
+                        notif_header.style.display = 'none';
+                    })
+                }else if( response.status == '1' ){
+                    btn_close.style.display = 'none';   
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
+                    text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+                    setTimeout(() => {
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                        ReadData();
+                    }, 2000);
                 }else{
-                    alert(response.msg);
-                    readData();
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
+                    logo.innerHTML = `<img src="../../assets/images/gif/error.gif" alt="">`;
+                    logo.style.padding = '1rem';
+                    logo.style.boxSizing = 'border-box';
+                    textErr.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+                    btn_close.addEventListener('click', () => {
+                        message.style.transition = 'all 5s ease';
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                    })
+                    ReadData();
                 }
             }
         })
@@ -81,24 +143,60 @@ $(document).ready(function(){
         const tgl_pinjam = $('#tgl_pinjam').val();
         const statusPinjam = $('#status').val();
 
-        $.ajax({
-            type : "POST",
-            url : "../../php/peminjaman/TambahData.php",
-            data : `id_admin=${id_admin}&kd_pinjam=${kd_pinjam}&nm_brg=${nm_brg}&jumlah=${jumlah}&ruangan=${ruangan}&peminjaman=${peminjaman}&tgl_pinjam=${tgl_pinjam}&status_pinjam=${statusPinjam}`,
-            dataType : "JSON",
-            success : (response) => {
-                
-                if( response.status == '1' ){
-                    alert(response.msg);
-                    resetForm();
-                    readData();
-                }else{
-                    alert(response.msg);
-                    readData();
-                }
+        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
 
-            }
-        })
+        // DOM ERROR Notification
+        const logo = document.querySelector('.pesan > .logo');
+        const textErr = document.querySelector('.pesan > .message');
+        const btn_close = document.querySelector('.pesan > .close');
+
+        if( !nm_brg || !jumlah || !ruangan || !peminjaman || !tgl_pinjam || !peminjaman || !tgl_pinjam || !statusPinjam ){
+            alert('Field Tidak Boleh kosong !');
+        }else{
+            $.ajax({
+                type : "POST",
+                url : "../../php/peminjaman/TambahData.php",
+                data : `id_admin=${id_admin}&kd_pinjam=${kd_pinjam}&nm_brg=${nm_brg}&jumlah=${jumlah}&ruangan=${ruangan}&peminjaman=${peminjaman}&tgl_pinjam=${tgl_pinjam}&status_pinjam=${statusPinjam}`,
+                dataType : "JSON",
+                success : (response) => {
+                    
+                    if( response.status == '1'){
+                        message.style.transition = 'all 5s 5s ease-in-out';
+                        message.style.opacity = '1';
+                        message.style.display = 'flex';
+                        pesan.style.top = '10%';
+                        text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+                        btn_close.style.display = 'none';
+                        resetForm();
+                        setTimeout( () => {
+                            ReadData();
+                            message.style.display = 'none';
+                            message.style.opacity = '0';
+                            pesan.style.top = '-100rem';
+                        }, 2000);
+                    }else{
+                        message.style.transition = 'all 5s 5s ease-in-out';
+                        message.style.opacity = '1';
+                        message.style.display = 'flex';
+                        pesan.style.top = '10%';
+                        logo.innerHTML = `<img src="../../assets/images/gif/error.gif" alt="">`;
+                        logo.style.padding = '1rem';
+                        logo.style.boxSizing = 'border-box';
+                        textErr.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+
+                        btn_close.addEventListener('click', () => {
+                            message.style.transition = 'all 5s ease';
+                            message.style.display = 'none';
+                            message.style.opacity = '0';
+                            pesan.style.top = '-100rem';
+                        })
+                    }
+    
+                }
+            })
+        }
 
     }
 
@@ -197,5 +295,22 @@ $(document).ready(function(){
     getKdPinjam();
     getBarang();
     getRuangan();
-    readData();
+    ReadData();
+})
+
+const popup = document.querySelector('.modal-popup');
+// event popup box
+document.body.addEventListener('click', (e) => {
+    if( e.target.id == 'logout' ){
+        popup.style.display = 'flex';
+    }else if(e.target.id == 'confirmErr'){
+        popup.style.display = 'none';
+    }
+})
+const confirmScs = document.querySelector('.confirm > .confirmScs');
+confirmScs.addEventListener('click', () => {
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('I');
+
+    document.location.href = '../login.html';
 })

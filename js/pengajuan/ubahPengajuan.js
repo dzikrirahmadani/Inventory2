@@ -120,45 +120,49 @@ $(document).ready(function(){
         const textErr = document.querySelector('.pesan > .message');
         const btn_close = document.querySelector('.pesan > .close');
 
-        $.ajax({
-            type : "POST",
-            url : "../../php/pengajuan/UbahPengajuan.php",
-            data : `id_pengajuan=${id_pengajuan}&nm_brg=${nama_barang}&hrg_beli=${hrg_beli}&vendor=${vendor}&tanggal=${tanggal}&status=${status}`,
-            dataType : "JSON",
-            success : (response) => {
-                if( response.status = '1' ){
-                    message.style.transition = 'all 5s 5s ease-in-out';
-                    message.style.opacity = '1';
-                    message.style.display = 'flex';
-                    pesan.style.top = '10%';
-                    text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
-                    btn_close.style.display = 'none';
-                    resetForm();
-                    setTimeout(() => {
-                        document.location.href = 'pengajuan.html';
-                        message.style.display = 'none';
-                        message.style.opacity = '0';
+        if( !nama_barang || !hrg_beli || !vendor || !tanggal || !status ){
+            alert("Field Tidak boleh kosong !");
+        }else{
+            $.ajax({
+                type : "POST",
+                url : "../../php/pengajuan/UbahPengajuan.php",
+                data : `id_pengajuan=${id_pengajuan}&nm_brg=${nama_barang}&hrg_beli=${hrg_beli}&vendor=${vendor}&tanggal=${tanggal}&status=${status}`,
+                dataType : "JSON",
+                success : (response) => {
+                    if( response.status = '1' ){
+                        message.style.transition = 'all 5s 5s ease-in-out';
+                        message.style.opacity = '1';
+                        message.style.display = 'flex';
+                        pesan.style.top = '10%';
+                        text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+                        btn_close.style.display = 'none';
+                        resetForm();
+                        setTimeout(() => {
+                            document.location.href = 'pengajuan.html';
+                            message.style.display = 'none';
+                            message.style.opacity = '0';
+                                pesan.style.top = '-100rem';
+                        }, 2000);
+                    }else{
+                        message.style.transition = 'all 5s 5s ease-in-out';
+                        message.style.opacity = '1';
+                        message.style.display = 'flex';
+                        pesan.style.top = '10%';
+                        logo.innerHTML = `<img src="../../assets/images/gif/error.gif" alt="">`;
+                        logo.style.padding = '1rem';
+                        logo.style.boxSizing = 'border-box';
+                        textErr.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+        
+                        btn_close.addEventListener('click', () => {
+                            message.style.transition = 'all 5s ease';
+                            message.style.display = 'none';
+                            message.style.opacity = '0';
                             pesan.style.top = '-100rem';
-                    }, 2000);
-                }else{
-                    message.style.transition = 'all 5s 5s ease-in-out';
-                    message.style.opacity = '1';
-                    message.style.display = 'flex';
-                    pesan.style.top = '10%';
-                    logo.innerHTML = `<img src="../../assets/images/gif/error.gif" alt="">`;
-                    logo.style.padding = '1rem';
-                    logo.style.boxSizing = 'border-box';
-                    textErr.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
-    
-                    btn_close.addEventListener('click', () => {
-                        message.style.transition = 'all 5s ease';
-                        message.style.display = 'none';
-                        message.style.opacity = '0';
-                        pesan.style.top = '-100rem';
-                    })
+                        })
+                    }
                 }
-            }
-        })
+            })
+        }
 
     }
 
