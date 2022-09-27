@@ -13,6 +13,8 @@ if( $_POST ){
     }else{
         $result['status'] = '0';
         $result['msg'] = "Data Gagal Dihapus !";
+        $result['errno'] = mysqli_errno($conn);
+        $result['error'] = mysqli_error($conn);
     }
 
     echo json_encode($result);
