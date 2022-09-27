@@ -25,7 +25,8 @@ if( $_POST ){
     if( $sql && $sql3 ){
         $result['status'] = '1';
         $result['msg'] = "Data Berhasil Ditambahkan !";
-    }else{
+    }
+    else{
         $result['status'] = '0';
         $result['msg'] = "Data Gagal Ditambahkan !";
         $result['error'] = mysqli_error($conn);

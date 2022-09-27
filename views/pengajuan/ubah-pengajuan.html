@@ -188,7 +188,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="../logout.php" class='sidebar-link hover:cursor-pointer' id="btn-out">
+                                <a class='sidebar-link hover:cursor-pointer' id="logout">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon-keluar bi bi-box-arrow-in-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
                                         <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
@@ -286,6 +286,96 @@
             </div>
         </div>
     </div>
+
+    <style>
+        #notif{
+            position: absolute;
+            z-index: 99999;
+            bottom: -15rem;
+            top: 0;
+            right: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            display: none;
+        }
+        #notif > .pesan{
+            position: fixed;
+            padding: 5rem;
+            /* top: 10%; */
+            top: -100rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: .5rem;
+            animation: animate2 1s cubic-bezier(0.03, 0.01, 0, 1.83) forwards;
+            background-color: rgba(27, 27, 41, .8);
+        }
+        @keyframes animate2 {
+            0%{
+                opacity: 0;
+                display: none;
+                height: 1rem;
+            }100%{
+                opacity: 1;
+                display: flex;
+            }
+        }
+        #notif > .pesan > .logo{
+            width: 50%;
+            height: 50%;
+        }
+        #notif > .pesan > .message > h1{
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #fff;
+            animation: animate1 .6s alternate forwards;
+            animation-timing-function: cubic-bezier(0.47, 0.08, 0.62, 1.4);
+            opacity: 0;
+        }
+        @keyframes animate1 {
+            0%{
+                font-size: 0;
+                opacity: 0;
+            }100%{
+                font-size: 1.8rem;
+                margin-bottom: .5rem;
+                opacity: 1;
+            }
+        }
+    </style>
+    <!-- Notification -->
+    <div class="notif" id="notif">
+        <div class="pesan pb-5">
+            <div class="close font-bold text-2xl text-white -mt-[4.5rem] text-right w-[150%] box-border hover:cursor-pointer" style="text-align: right;">X</div>
+            <div class="logo d-flex justify-content-center align-center my-4" style="width: 5rem; background-color: #fff; border-radius: 50%; padding: -1rem;">
+                <img src="../../assets/images/gif/success4.gif" alt="">
+            </div>
+            <div class="message">
+                
+            </div>
+        </div>
+    </div>
+    <!-- End of notification -->
+
+    <!-- pop up box -->
+    <style>
+        .modal-popup{
+            display: none;
+        }
+    </style>
+    <div class="modal-popup text-[#1B1B29] bg-[#1b1b2980] fixed inset-0 z-50 flex-row justify-content-center items-center">
+        <div class="w-[350px] h-[9rem] bg-[#fff] rounded-[.5rem] flex flex-col items-center" id="box">
+            <span class="messege font-semibold text-center text-sm md:text-sm lg:text-md mt-[2.5rem] capitalize">apakah anda yakin ingin logout ?</span>
+            <div class="confirm flex items-center mt-[3rem] mb-5 ml-[12rem]">
+                <a href="#" class="font-semibold text-xs md:text-sm lg:text-md mx-[1rem]" id="confirmErr">Tidak</a>
+                <a href="../logout.php" class="confirmScs font-semibold text-xs md:text-sm lg:text-md mx-[1rem]">Ya</a>
+            </div>
+        </div>
+    </div>
+    <!-- end of pop up box -->
     <!-- END CONTENT -->
 
     <script src="../../assets/js/bootstrap.js"></script>
