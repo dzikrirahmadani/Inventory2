@@ -4,23 +4,6 @@ if( !session ){
     document.location.href = '../login.html';
 }
 
-// Event ketika tombol logout di klik
-const btn_out = document.querySelector('#btn-out');
-btn_out.addEventListener('click', () => {
-    if( confirm('Apakah Yakin Ingin Keluar ?') ){
-        logout();
-    }
-})
-
-const logout = () => {
-
-    sessionStorage.removeItem('id');
-    sessionStorage.removeItem('I');
-
-    document.location.href = '../login.html';
-}
-
-
 $(document).ready(function(){
 
     const ReadData = async () => {
@@ -54,29 +37,90 @@ $(document).ready(function(){
 
             // Event ketika tombol hapus di klik 
             const btn_del = document.querySelectorAll('#btn-hapus');
+            const popup = document.querySelector('.modal-popup-del');
+            const textPopup = popup.querySelector('#textConfirm');
+
             btn_del.forEach(el => {
                 el.addEventListener('click', function(){
-                    if( confirm('Apakah yakin ingin menghapus ?') ){
-                        const id_vendor = this.dataset.id;
-                        DeleteData(id_vendor);
-                    }
+                    popup.style.display = 'flex';
+                    textPopup.textContent = "Apakah Yakin Ingin Menghapus ?";
+                    let id = el.dataset.id;
+                    document.body.addEventListener('click', (e) => {
+                        if(e.target.id == 'success'){
+                            hapusData(id);
+                        }else if(e.target.id == 'confirmErr'){
+                            popup.style.display = 'none';
+                        }
+                    })
                 })
             })
         })
     }
 
-    const DeleteData = (id_vendor) => {
+    const hapusData = (id_vendor) => {
+
+        const notif_header = document.getElementById('notif-header');
+        const btn_tutup = document.getElementById('tutup');
+        const popup = document.querySelector('.modal-popup-del');
+        popup.style.display = 'none';
+
+        // DOM Success Notification
+        const message = document.getElementById('notif');
+        const pesan = document.querySelector('.pesan');
+        const text = document.querySelector('.message');
+        
+        // DOM ERROR Notification
+        const logo = document.querySelector('.pesan > .logo');
+        const textErr = document.querySelector('.pesan > .message');
+        const btn_close = document.querySelector('.pesan > .close');
+
         $.ajax({
             type : "POST",
             url : "../../php/vendor/HapusData.php",
             data : `id_vendor=${id_vendor}`,
             dataType : "JSON",
             success : function(response) {
-                if( response.status == '1' ){
-                    alert(response.msg);
-                    ReadData();
+                console.log(response)
+                if ( response.errno == '1451' ){
+                    message.style.display = 'none';
+                    message.style.opacity = '0';
+                    pesan.style.top = '-100rem';
+                    notif_header.style.display = 'flex';
+                    notif_header.style.transition = 'all .5s .5s ease-in-out';
+                    notif_header.style.opacity = '1';
+
+                    btn_tutup.addEventListener('click', () => {
+                        notif_header.style.display = 'none';
+                    })
+                }else if( response.status == '1' ){
+                    btn_close.style.display = 'none';   
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
+                    text.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+                    setTimeout(() => {
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                        ReadData();
+                    }, 2000);
                 }else{
-                    alert(response.msg);
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
+                    logo.innerHTML = `<img src="../../assets/images/gif/error.gif" alt="">`;
+                    logo.style.padding = '1rem';
+                    logo.style.boxSizing = 'border-box';
+                    textErr.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+                    btn_close.addEventListener('click', () => {
+                        message.style.transition = 'all 5s ease';
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                    })
+                    ReadData();
                 }
             }
         })
@@ -106,4 +150,21 @@ $(document).ready(function(){
     }
 
     ReadData();
+})
+
+const popup = document.querySelector('.modal-popup');
+// event popup box
+document.body.addEventListener('click', (e) => {
+    if( e.target.id == 'logout' ){
+        popup.style.display = 'flex';
+    }else if(e.target.id == 'confirmErr'){
+        popup.style.display = 'none';
+    }
+})
+const confirmScs = document.querySelector('.confirm > .confirmScs');
+confirmScs.addEventListener('click', () => {
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('I');
+
+    document.location.href = '../login.html';
 })
