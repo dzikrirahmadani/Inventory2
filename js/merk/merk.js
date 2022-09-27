@@ -7,6 +7,7 @@ $(document).ready(function(){
     }
 
     function ReadData() {
+
         $.ajax({
             type : "GET",
             url : "../../php/merk/GetData.php",
@@ -77,8 +78,19 @@ $(document).ready(function(){
             data : `id_merk=${id_merk}`,
             dataType : "JSON",
             success : function(response) {
-                console.log(response);
-                if( response.status == '1' ){
+
+                if ( response.errno == '1451' ){
+                    message.style.display = 'none';
+                    message.style.opacity = '0';
+                    pesan.style.top = '-100rem';
+                    notif_header.style.display = 'flex';
+                    notif_header.style.transition = 'all .5s .5s ease-in-out';
+                    notif_header.style.opacity = '1';
+
+                    btn_tutup.addEventListener('click', () => {
+                        notif_header.style.display = 'none';
+                    })
+                }else if( response.status == '1' ){
                     btn_close.style.display = 'none';   
                     message.style.transition = 'all 5s 5s ease-in-out';
                     message.style.opacity = '1';
@@ -89,19 +101,23 @@ $(document).ready(function(){
                         message.style.display = 'none';
                         message.style.opacity = '0';
                         pesan.style.top = '-100rem';
-                        document.body.style.position = 'relative';
                         ReadData();
                     }, 2000);
-                }else if( response.errno = '1451' ){
-                    notif_header.style.display = 'flex';
-                    notif_header.style.transition = 'all .5s .5s ease-in-out';
-                    notif_header.style.opacity = '1';
-
-                    btn_tutup.addEventListener('click', () => {
-                        notif_header.style.display = 'none';
-                    })
                 }else{
-                    alert(response.msg);
+                    message.style.transition = 'all 5s 5s ease-in-out';
+                    message.style.opacity = '1';
+                    message.style.display = 'flex';
+                    pesan.style.top = '10%';
+                    logo.innerHTML = `<img src="../../assets/images/gif/error.gif" alt="">`;
+                    logo.style.padding = '1rem';
+                    logo.style.boxSizing = 'border-box';
+                    textErr.innerHTML = `<h1 class='capitalize'>${response.msg}</h1>`;
+                    btn_close.addEventListener('click', () => {
+                        message.style.transition = 'all 5s ease';
+                        message.style.display = 'none';
+                        message.style.opacity = '0';
+                        pesan.style.top = '-100rem';
+                    })
                     ReadData();
                 }
             }
