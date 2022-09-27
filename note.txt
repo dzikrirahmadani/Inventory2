@@ -3,3 +3,5 @@ data barang
 batal tambah & batal ubah satuan
 
 ## POPUP DAN ANIMASI SUCCESS HAPUS baru sampai halaman kategori 
+
+https://github.com/arisandriana/inventoryrpl.git
