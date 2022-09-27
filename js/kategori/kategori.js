@@ -102,7 +102,6 @@ $(document).ready(function(){
                         message.style.display = 'none';
                         message.style.opacity = '0';
                         pesan.style.top = '-100rem';
-                        document.body.style.position = 'relative';
                         ReadData();
                     }, 2000);
                 }else{

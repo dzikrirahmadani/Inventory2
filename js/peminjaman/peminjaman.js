@@ -22,9 +22,18 @@ $(document).ready(function(){
             }
             $('#target-data').html(data);
 
+            // EVENT KETIKA TOMBOL UBAH DI KLIK
+            const btn_ubah = document.querySelectorAll('#btn-ubah');
+            btn_ubah.forEach( el => {
+                el.addEventListener('click', function(){
+                    let id = this.dataset.id;
+                    document.location.href = `ubah-peminjaman.html?data=${id}`;
+                })
+            })
+
+
             // EVENT KETIKA TOMBOL DELETE DI KLIK
             const btn_del = document.querySelectorAll('#btn-hapus');
-            console.log(btn_del);
             btn_del.forEach(el => {
                 el.addEventListener('click', function(){
                     let id = this.dataset.id;
