@@ -120,13 +120,15 @@ $(document).ready(function(){
     const getSingleData = () => {
 
         const id_peminjaman = getUrlVars('data');
-        
+
         $.ajax({
             type : "POST",
             url : "../../php/peminjaman/GetSingleData.php",
             data : `id_peminjaman=${id_peminjaman}`,
             dataType : "JSON",
             success : (response => {
+
+                console.log(response);
 
                 document.getElementById('kd_pinjam').value = response.kode;
                 document.getElementById('tgl_pinjam').value = response.tanggal;
