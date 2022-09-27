@@ -24,7 +24,7 @@ $(document).ready(function(){
         const kategori = $('#kategori').val();
         const spesifikasi = $('#spesifikasi').val();
         
-        // // DOM Success Notification
+        // DOM Success Notification
         const message = document.getElementById('notif');
         const pesan = document.querySelector('.pesan');
         const text = document.querySelector('.message');
