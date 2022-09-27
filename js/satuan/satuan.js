@@ -100,7 +100,18 @@ $(document).ready(function(){
             dataType : "JSON",
             success : function(response) {
 
-                if( response.status == '1' ){
+                if ( response.errno == '1451' ){
+                    message.style.display = 'none';
+                    message.style.opacity = '0';
+                    pesan.style.top = '-100rem';
+                    notif_header.style.display = 'flex';
+                    notif_header.style.transition = 'all .5s .5s ease-in-out';
+                    notif_header.style.opacity = '1';
+
+                    btn_tutup.addEventListener('click', () => {
+                        notif_header.style.display = 'none';
+                    })
+                }else if( response.status == '1' ){
                     btn_close.style.display = 'none';   
                     message.style.transition = 'all 5s 5s ease-in-out';
                     message.style.opacity = '1';
@@ -111,17 +122,8 @@ $(document).ready(function(){
                         message.style.display = 'none';
                         message.style.opacity = '0';
                         pesan.style.top = '-100rem';
-                        document.body.style.position = 'relative';
                         ReadData();
                     }, 2000);
-                }else if ( response.errno == '1451' ){
-                    notif_header.style.display = 'flex';
-                    notif_header.style.transition = 'all .5s .5s ease-in-out';
-                    notif_header.style.opacity = '1';
-
-                    btn_tutup.addEventListener('click', () => {
-                        notif_header.style.display = 'none';
-                    })
                 }else{
                     message.style.transition = 'all 5s 5s ease-in-out';
                     message.style.opacity = '1';
